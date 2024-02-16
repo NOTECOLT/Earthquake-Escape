@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://csqy7nm3svata"]
+
+[ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://BACKGROUND.png" id="1_ir7pl"]
+[ext_resource type="Texture2D" uid="uid://c1oeapwfodv8w" path="res://buttonNew.png" id="2_eccei"]
+[ext_resource type="Texture2D" uid="uid://c30fdyiebjdeo" path="res://buttonLoad.png" id="3_umykr"]
+[ext_resource type="Texture2D" uid="uid://wrfjqp51xta6" path="res://buttonGloss.png" id="4_6kqtp"]
+[ext_resource type="Texture2D" uid="uid://c23tw1a6lc7lj" path="res://TITLE.png" id="5_qslgo"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(401, 298)
+texture = ExtResource("1_ir7pl")
+
+[node name="ButtonNew" type="Sprite2D" parent="."]
+position = Vector2(165, 405)
+texture = ExtResource("2_eccei")
+
+[node name="ButtonLoad" type="Sprite2D" parent="."]
+position = Vector2(404, 404)
+texture = ExtResource("3_umykr")
+
+[node name="ButtonGloss" type="Sprite2D" parent="."]
+position = Vector2(643, 402)
+texture = ExtResource("4_6kqtp")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(404, 163)
+scale = Vector2(1.46787, 1.6236)
+texture = ExtResource("5_qslgo")
