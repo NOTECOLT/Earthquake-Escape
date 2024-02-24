@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnfa2v167owk6"]
+
+[ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://BACKGROUND.png" id="1_2i8nw"]
+
+[node name="GlossaryUI" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(401, 301)
+texture = ExtResource("1_2i8nw")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 336.0
+offset_top = 234.0
+offset_right = 491.0
+offset_bottom = 276.0
+text = "THIS IS GLOSSARY
+"

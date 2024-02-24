@@ -1,30 +1,86 @@
-[gd_scene load_steps=6 format=3 uid="uid://csqy7nm3svata"]
+[gd_scene load_steps=9 format=3 uid="uid://csqy7nm3svata"]
 
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://BACKGROUND.png" id="1_ir7pl"]
 [ext_resource type="Texture2D" uid="uid://c1oeapwfodv8w" path="res://buttonNew.png" id="2_eccei"]
 [ext_resource type="Texture2D" uid="uid://c30fdyiebjdeo" path="res://buttonLoad.png" id="3_umykr"]
 [ext_resource type="Texture2D" uid="uid://wrfjqp51xta6" path="res://buttonGloss.png" id="4_6kqtp"]
 [ext_resource type="Texture2D" uid="uid://c23tw1a6lc7lj" path="res://TITLE.png" id="5_qslgo"]
+[ext_resource type="PackedScene" uid="uid://bm3ah53bofacd" path="res://start_ui.tscn" id="6_uxaa2"]
+[ext_resource type="PackedScene" uid="uid://dnfa2v167owk6" path="res://glossary_ui.tscn" id="7_r4kg7"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_wn2mh"]
+script/source = "using Godot;
+using System;
+/*
+public partial class main_menu : Node2D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+	
+	
+	
+}
+*/
+
+private void _on_new_button_pressed()
+{
+
+	GetTree().ChangeSceneToFile(\"res://start_ui.tscn\");
+}
+
+
+private void _on_gloss_button_pressed()
+{
+
+	GetTree().ChangeSceneToFile(\"res://glossary_ui.tscn\");
+}
+
+
+"
 
 [node name="MainMenu" type="Node2D"]
+script = SubResource("CSharpScript_wn2mh")
+
+[node name="GlossaryUI" parent="." instance=ExtResource("7_r4kg7")]
+
+[node name="StartUI" parent="." instance=ExtResource("6_uxaa2")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(401, 298)
 texture = ExtResource("1_ir7pl")
 
-[node name="ButtonNew" type="Sprite2D" parent="."]
-position = Vector2(165, 405)
-texture = ExtResource("2_eccei")
-
-[node name="ButtonLoad" type="Sprite2D" parent="."]
-position = Vector2(404, 404)
-texture = ExtResource("3_umykr")
-
-[node name="ButtonGloss" type="Sprite2D" parent="."]
-position = Vector2(643, 402)
-texture = ExtResource("4_6kqtp")
-
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(404, 163)
 scale = Vector2(1.46787, 1.6236)
 texture = ExtResource("5_qslgo")
+
+[node name="NewButton" type="TextureButton" parent="."]
+offset_left = 57.0
+offset_top = 371.0
+offset_right = 257.0
+offset_bottom = 435.0
+texture_normal = ExtResource("2_eccei")
+
+[node name="GlossButton" type="TextureButton" parent="."]
+offset_left = 558.0
+offset_top = 372.0
+offset_right = 758.0
+offset_bottom = 436.0
+texture_normal = ExtResource("4_6kqtp")
+
+[node name="LoadButton" type="TextureButton" parent="."]
+offset_left = 310.0
+offset_top = 371.0
+offset_right = 510.0
+offset_bottom = 435.0
+texture_normal = ExtResource("3_umykr")
+
+[connection signal="pressed" from="NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="GlossButton" to="." method="_on_gloss_button_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm3ah53bofacd"]
+
+[ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://BACKGROUND.png" id="1_oubs1"]
+
+[node name="StartUI" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(402, 298)
+texture = ExtResource("1_oubs1")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 314.0
+offset_top = 195.0
+offset_right = 494.0
+offset_bottom = 238.0
+text = "THESE ARE SAVE FILES"
