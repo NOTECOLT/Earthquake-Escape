@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnfa2v167owk6"]
+[gd_scene load_steps=3 format=3 uid="uid://dnfa2v167owk6"]
 
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://BACKGROUND.png" id="1_2i8nw"]
+[ext_resource type="Script" path="res://glossary_ui.gd" id="1_w8kfj"]
 
 [node name="GlossaryUI" type="Node2D"]
+script = ExtResource("1_w8kfj")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(401, 301)
 texture = ExtResource("1_2i8nw")
+
+[node name="Button" type="Button" parent="Background"]
+offset_left = -109.0
+offset_top = 7.0
+offset_right = 127.0
+offset_bottom = 44.0
+text = "Temporary exit button
+"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 336.0
@@ -15,3 +25,5 @@ offset_right = 491.0
 offset_bottom = 276.0
 text = "THIS IS GLOSSARY
 "
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
