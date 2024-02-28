@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm3ah53bofacd"]
+[gd_scene load_steps=3 format=3 uid="uid://x7f38nuvcl04"]
 
-[ext_resource type="Script" path="res://Scripts/start_ui.gd" id="1_fclaj"]
-[ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Assets/UI/BACKGROUND.png" id="1_oubs1"]
+[ext_resource type="Script" path="res://load_ui.gd" id="1_xwwxk"]
+[ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Assets/UI/BACKGROUND.png" id="2_hpq0r"]
 
-[node name="StartUI" type="Control"]
+[node name="LoadUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 600.0
-script = ExtResource("1_fclaj")
+script = ExtResource("1_xwwxk")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(400, 300)
-texture = ExtResource("1_oubs1")
+texture = ExtResource("2_hpq0r")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -22,44 +22,43 @@ offset_right = 497.0
 offset_bottom = 513.0
 text = "Main Menu"
 
-[node name="Start Save 3" type="Button" parent="."]
+[node name="Load Save 3" type="Button" parent="."]
 layout_mode = 0
 offset_left = 520.0
 offset_top = 112.0
 offset_right = 702.0
 offset_bottom = 165.0
 theme_override_font_sizes/font_size = 20
-text = "Start Save Slot 3"
+text = "Load Save Slot 3"
 
-[node name="Start Save 2" type="Button" parent="."]
+[node name="Load Save 2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 312.0
 offset_top = 112.0
 offset_right = 494.0
 offset_bottom = 165.0
 theme_override_font_sizes/font_size = 20
-text = "Start Save Slot 2"
+text = "Load Save Slot 2"
 
-[node name="Start Save 1" type="Button" parent="."]
+[node name="Load Save 1" type="Button" parent="."]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 112.0
 offset_right = 286.0
 offset_bottom = 165.0
 theme_override_font_sizes/font_size = 20
-text = "Start Save Slot 1"
+text = "Load Save Slot 1"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 320.0
 offset_top = 48.0
 offset_right = 484.0
 offset_bottom = 90.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Start Game"
+text = "Load Game"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Start Save 3" to="." method="_on_start_save_3_pressed"]
-[connection signal="pressed" from="Start Save 2" to="." method="_on_start_save_2_pressed"]
-[connection signal="pressed" from="Start Save 1" to="." method="_on_start_save_1_pressed"]
+[connection signal="pressed" from="Load Save 3" to="." method="_on_load_save_3_pressed"]
+[connection signal="pressed" from="Load Save 2" to="." method="_on_load_save_2_pressed"]
+[connection signal="pressed" from="Load Save 1" to="." method="_on_load_save_1_pressed"]
