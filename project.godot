@@ -24,6 +24,10 @@ window/size/viewport_height=600
 
 project/assembly_name="Earthquake-escape"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
