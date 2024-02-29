@@ -20,6 +20,7 @@ func load_save(slot: int):
 		if player is Player:
 			print("Loading " + filepath)
 			print("Name: " + player.name)
+			print("Game Loaded with save " + filepath)
 			return player
 	else:
 		print("Cannot load file " + filepath + " because it does not exist.")

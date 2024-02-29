@@ -16,11 +16,11 @@ func start_save(slot: int):
 	
 	var filepath = save_path + str("save", slot) + ".tres"
 	if ResourceLoader.exists(filepath):
-		print(filepath + " already exists.")
+		print(filepath + " already exists. Existing save must be overwritten.")
 	else:
 		var player = Player.new()
 		player.name = "New"
-		print("Saving to " + filepath)
+		print("Starting new save at " + filepath)
 		var result = ResourceSaver.save(player, filepath)
 	pass
 
