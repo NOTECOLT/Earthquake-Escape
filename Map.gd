@@ -11,7 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if collected:
-		self.play("taken")
+		self.queue_free()
 	else:
 		if highlighted:
 			self.play("Highlight")
