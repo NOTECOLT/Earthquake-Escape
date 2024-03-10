@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf7lam5ikmuay"]
+
+[ext_resource type="Script" path="res://living_room.gd" id="1_rk2pg"]
+[ext_resource type="Texture2D" uid="uid://5qcec2rgl6gx" path="res://Rectangle 6.png" id="1_rvmey"]
+[ext_resource type="Texture2D" uid="uid://chl4nhnnc2dkr" path="res://shelf.png" id="2_h2jns"]
+[ext_resource type="Texture2D" uid="uid://dgmrxog42o8q3" path="res://door.png" id="3_3ajjp"]
+[ext_resource type="Texture2D" uid="uid://bt07pwf5pbbdr" path="res://table.png" id="4_wfmau"]
+[ext_resource type="Texture2D" uid="uid://b4ejaey84lgdh" path="res://map.png" id="5_j3gj7"]
+[ext_resource type="Texture2D" uid="uid://8towb3ptj7pi" path="res://tv.png" id="6_8cc54"]
+[ext_resource type="Texture2D" uid="uid://co2lcv33iprrs" path="res://couch.png" id="7_w1fo1"]
+[ext_resource type="Texture2D" uid="uid://d4bwsgdktkuqo" path="res://bag.png" id="8_xsxr2"]
+[ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://inventory.png" id="9_vb7vx"]
+
+[node name="LivingRoom" type="Node2D"]
+script = ExtResource("1_rk2pg")
+
+[node name="Rectangle6" type="Sprite2D" parent="."]
+position = Vector2(400, 484.5)
+scale = Vector2(1, 0.903101)
+texture = ExtResource("1_rvmey")
+
+[node name="ColorRect" type="ColorRect" parent="Rectangle6"]
+offset_left = -400.0
+offset_top = -535.0
+offset_right = 398.0
+offset_bottom = -130.0
+color = Color(1, 1, 0, 1)
+
+[node name="Shelf" type="Sprite2D" parent="."]
+position = Vector2(681, 230)
+texture = ExtResource("2_h2jns")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(103, 242)
+texture = ExtResource("3_3ajjp")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(208, 527)
+texture = ExtResource("4_wfmau")
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(80, 485)
+texture = ExtResource("5_j3gj7")
+
+[node name="Tv" type="Sprite2D" parent="."]
+position = Vector2(419, 254)
+texture = ExtResource("6_8cc54")
+
+[node name="Couch" type="Sprite2D" parent="."]
+position = Vector2(411, 397)
+texture = ExtResource("7_w1fo1")
+
+[node name="Bag" type="Sprite2D" parent="."]
+position = Vector2(556, 453)
+texture = ExtResource("8_xsxr2")
+
+[node name="Inventory" type="Sprite2D" parent="."]
+position = Vector2(403, 562)
+texture = ExtResource("9_vb7vx")
