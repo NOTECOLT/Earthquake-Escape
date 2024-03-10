@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf7lam5ikmuay"]
+[gd_scene load_steps=16 format=3 uid="uid://bf7lam5ikmuay"]
 
 [ext_resource type="Script" path="res://living_room.gd" id="1_rk2pg"]
 [ext_resource type="Texture2D" uid="uid://5qcec2rgl6gx" path="res://Rectangle 6.png" id="1_rvmey"]
@@ -10,6 +10,39 @@
 [ext_resource type="Texture2D" uid="uid://co2lcv33iprrs" path="res://couch.png" id="7_w1fo1"]
 [ext_resource type="Texture2D" uid="uid://d4bwsgdktkuqo" path="res://bag.png" id="8_xsxr2"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://inventory.png" id="9_vb7vx"]
+[ext_resource type="Texture2D" uid="uid://cts20a7u6rhda" path="res://Hmap.png" id="10_ggptl"]
+[ext_resource type="Texture2D" uid="uid://msricjmve1tt" path="res://empty.png" id="12_k8rn6"]
+[ext_resource type="Script" path="res://Map.gd" id="12_qofc6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f55e1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ggptl")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j3gj7")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_k8rn6")
+}],
+"loop": true,
+"name": &"taken",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nolhk"]
+size = Vector2(134, 75.5)
 
 [node name="LivingRoom" type="Node2D"]
 script = ExtResource("1_rk2pg")
@@ -35,12 +68,9 @@ position = Vector2(103, 242)
 texture = ExtResource("3_3ajjp")
 
 [node name="Table" type="Sprite2D" parent="."]
-position = Vector2(208, 527)
+position = Vector2(218.5, 500.5)
+scale = Vector2(0.913136, 1.025)
 texture = ExtResource("4_wfmau")
-
-[node name="Map" type="Sprite2D" parent="."]
-position = Vector2(80, 485)
-texture = ExtResource("5_j3gj7")
 
 [node name="Tv" type="Sprite2D" parent="."]
 position = Vector2(419, 254)
@@ -57,3 +87,19 @@ texture = ExtResource("8_xsxr2")
 [node name="Inventory" type="Sprite2D" parent="."]
 position = Vector2(403, 562)
 texture = ExtResource("9_vb7vx")
+
+[node name="Map" type="AnimatedSprite2D" parent="."]
+position = Vector2(86, 447)
+sprite_frames = SubResource("SpriteFrames_f55e1")
+animation = &"Highlight"
+script = ExtResource("12_qofc6")
+
+[node name="Area2D" type="Area2D" parent="Map"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Area2D"]
+position = Vector2(86, 446.75)
+shape = SubResource("RectangleShape2D_nolhk")
+
+[connection signal="mouse_exited" from="Map/Area2D" to="Map" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Map/Area2D" to="Map" method="_on_area_2d_mouse_shape_entered"]
