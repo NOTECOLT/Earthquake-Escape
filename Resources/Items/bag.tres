@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bp1empf45q77o"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_axy8i"]
+[ext_resource type="Texture2D" uid="uid://co3xtudpx1evw" path="res://Art/Items/highlight/LRoom_gobag_hl.png" id="2_xvc15"]
+[ext_resource type="Texture2D" uid="uid://ccf47vnvcjt66" path="res://Art/Items/LRoom_gobag.png" id="3_aow2c"]
+
+[resource]
+script = ExtResource("1_axy8i")
+name = "Bag"
+texture = ExtResource("3_aow2c")
+selected_texture = ExtResource("2_xvc15")

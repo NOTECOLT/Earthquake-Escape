@@ -13,7 +13,7 @@ config_version=5
 config/name="Earthquake-escape"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Art/icon.svg"
 
 [autoload]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bihm6yp2jcpf7"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_e0xfq"]
+[ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/highlight/LRoom_radio_hl.png" id="2_kj8cd"]
+[ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/LRoom_radio.png" id="3_8qqhk"]
+
+[resource]
+script = ExtResource("1_e0xfq")
+name = "Radio"
+texture = ExtResource("3_8qqhk")
+selected_texture = ExtResource("2_kj8cd")
