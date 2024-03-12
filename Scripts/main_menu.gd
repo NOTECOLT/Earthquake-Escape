@@ -12,12 +12,12 @@ func _process(_delta):
 
 
 func _on_new_button_pressed():
-	get_tree().change_scene_to_file("res://start_ui.tscn")
+	get_tree().change_scene_to_file("res://Scenes/start_ui.tscn")
 
 
 func _on_gloss_button_pressed():
-	get_tree().change_scene_to_file("res://glossary_ui.tscn")
+	get_tree().change_scene_to_file("res://Scenes/glossary_ui.tscn")
 
 
 func _on_load_button_pressed():
-	get_tree().change_scene_to_file("res://load_ui.tscn")
+	get_tree().change_scene_to_file("res://Scenes/load_ui.tscn")

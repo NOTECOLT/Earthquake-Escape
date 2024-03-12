@@ -1,0 +1,234 @@
+[gd_scene load_steps=32 format=3 uid="uid://cn1mm47emi41f"]
+
+[ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Assets/BG/LRoom_bg.png" id="1_8110v"]
+[ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Assets/Items/LRoom_tvTable.png" id="2_jkrb6"]
+[ext_resource type="Texture2D" uid="uid://e44h4id47ul2" path="res://Assets/Items/LRoom_tv.png" id="3_jmrin"]
+[ext_resource type="Texture2D" uid="uid://dxrxx5p74xdmq" path="res://Assets/Items/LRoom_doorBed.png" id="4_1n830"]
+[ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Assets/UI/inventory.png" id="5_hdyxd"]
+[ext_resource type="Texture2D" uid="uid://bcca22mmgef1c" path="res://Assets/Items/LRoom_couch.png" id="6_3iugh"]
+[ext_resource type="Texture2D" uid="uid://c10gchnbe6htd" path="res://Assets/Items/LRoom_desk.png" id="7_ofest"]
+[ext_resource type="Texture2D" uid="uid://c0hlu1dehgggs" path="res://Assets/Items/LRoom_chair.png" id="8_ycfnc"]
+[ext_resource type="Texture2D" uid="uid://cbkhayy2otmi6" path="res://Assets/Items/LRoom_doorOut.png" id="9_5jxpc"]
+[ext_resource type="Texture2D" uid="uid://dcv2i8uy0xod5" path="res://Assets/Items/LRoom_lamp.png" id="10_devjx"]
+[ext_resource type="Texture2D" uid="uid://co3xtudpx1evw" path="res://Assets/Items/highlight/LRoom_gobag_hl.png" id="11_ys58q"]
+[ext_resource type="Texture2D" uid="uid://ccf47vnvcjt66" path="res://Assets/Items/LRoom_gobag.png" id="12_6ni2g"]
+[ext_resource type="Script" path="res://Scripts/Bag.gd" id="13_ee6xq"]
+[ext_resource type="Texture2D" uid="uid://c603waopl1wi" path="res://Assets/Items/highlight/LRoom_ntbk_hl.png" id="14_8hcvb"]
+[ext_resource type="Texture2D" uid="uid://bo6snumegi223" path="res://Assets/Items/LRoom_ntbk.png" id="15_nntuw"]
+[ext_resource type="Script" path="res://Scripts/LRnb.gd" id="16_cneay"]
+[ext_resource type="Texture2D" uid="uid://c16p6qcrhx3of" path="res://Assets/Items/LRoom_shelf.png" id="17_jjq3y"]
+[ext_resource type="Texture2D" uid="uid://d0m5slrxbsh4o" path="res://Assets/Items/highlight/LRoom_water_hl.png" id="18_vqlr6"]
+[ext_resource type="Texture2D" uid="uid://c8765radv8hps" path="res://Assets/Items/LRoom_water.png" id="19_y5sqv"]
+[ext_resource type="Script" path="res://Scripts/LRwater.gd" id="20_1e2fb"]
+[ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Assets/Items/highlight/LRoom_radio_hl.png" id="21_wlujc"]
+[ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Assets/Items/LRoom_radio.png" id="22_tpdy2"]
+[ext_resource type="Script" path="res://Scripts/LRradio.gd" id="23_j8gxp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06sm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ys58q")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6ni2g")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo5x0"]
+size = Vector2(146, 128.44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld7up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_8hcvb")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_nntuw")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpg6"]
+size = Vector2(97.5469, 36.908)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y1s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_vqlr6")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_y5sqv")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3irr"]
+size = Vector2(44.491, 112.2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5abc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_wlujc")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_tpdy2")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djnhs"]
+size = Vector2(91.8524, 90.0555)
+
+[node name="LivingRoom" type="Node2D"]
+
+[node name="LRoomBg" type="Sprite2D" parent="."]
+position = Vector2(400.25, 299)
+scale = Vector2(0.497187, 0.5)
+texture = ExtResource("1_8110v")
+
+[node name="LRoomTvTable" type="Sprite2D" parent="."]
+position = Vector2(641, 356)
+scale = Vector2(0.712121, 0.634091)
+texture = ExtResource("2_jkrb6")
+
+[node name="LRoomTv" type="Sprite2D" parent="."]
+position = Vector2(647, 219)
+scale = Vector2(0.870717, 0.869099)
+texture = ExtResource("3_jmrin")
+
+[node name="LRoomDoorBed" type="Sprite2D" parent="."]
+position = Vector2(406, 190.5)
+scale = Vector2(0.486842, 0.530093)
+texture = ExtResource("4_1n830")
+
+[node name="Inventory" type="Sprite2D" parent="."]
+position = Vector2(400, 562)
+texture = ExtResource("5_hdyxd")
+
+[node name="LRoomCouch" type="Sprite2D" parent="."]
+position = Vector2(570, 413)
+scale = Vector2(0.587909, 0.524725)
+texture = ExtResource("6_3iugh")
+
+[node name="LRoomDesk" type="Sprite2D" parent="."]
+position = Vector2(134.938, 371.063)
+scale = Vector2(0.516366, 0.549667)
+texture = ExtResource("7_ofest")
+
+[node name="LRoomChair" type="Sprite2D" parent="."]
+position = Vector2(196, 404)
+scale = Vector2(0.757576, 0.713265)
+texture = ExtResource("8_ycfnc")
+
+[node name="LRoomDoorOut" type="Sprite2D" parent="."]
+position = Vector2(286, 187.375)
+scale = Vector2(0.576271, 0.527185)
+texture = ExtResource("9_5jxpc")
+
+[node name="LRoomLamp" type="Sprite2D" parent="."]
+position = Vector2(164.75, 266.625)
+scale = Vector2(0.520833, 0.407658)
+texture = ExtResource("10_devjx")
+
+[node name="LRbag" type="AnimatedSprite2D" parent="."]
+position = Vector2(430, 448)
+scale = Vector2(0.69677, 0.67736)
+sprite_frames = SubResource("SpriteFrames_06sm6")
+animation = &"noHighlight"
+script = ExtResource("13_ee6xq")
+
+[node name="Area2D" type="Area2D" parent="LRbag"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LRbag/Area2D"]
+position = Vector2(87.4352, 443.309)
+shape = SubResource("RectangleShape2D_jo5x0")
+
+[node name="LRnb" type="AnimatedSprite2D" parent="."]
+position = Vector2(147, 307)
+scale = Vector2(0.69677, 0.67736)
+sprite_frames = SubResource("SpriteFrames_ld7up")
+animation = &"noHighlight"
+script = ExtResource("16_cneay")
+
+[node name="Area2D" type="Area2D" parent="LRnb"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LRnb/Area2D"]
+position = Vector2(86.0232, 446.262)
+shape = SubResource("RectangleShape2D_qvpg6")
+
+[node name="LRoomShelf" type="Sprite2D" parent="."]
+position = Vector2(647, 106)
+scale = Vector2(0.631291, 0.619565)
+texture = ExtResource("17_jjq3y")
+
+[node name="LRwater" type="AnimatedSprite2D" parent="."]
+position = Vector2(68.5097, 297.135)
+scale = Vector2(0.534431, 0.586468)
+sprite_frames = SubResource("SpriteFrames_3y1s8")
+animation = &"Highlight"
+script = ExtResource("20_1e2fb")
+
+[node name="Area2D" type="Area2D" parent="LRwater"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LRwater/Area2D"]
+position = Vector2(85.0462, 441.654)
+shape = SubResource("RectangleShape2D_c3irr")
+
+[node name="LRradio" type="AnimatedSprite2D" parent="."]
+position = Vector2(580, 57)
+scale = Vector2(0.69677, 0.67736)
+sprite_frames = SubResource("SpriteFrames_i5abc")
+animation = &"Highlight"
+script = ExtResource("23_j8gxp")
+
+[node name="Area2D" type="Area2D" parent="LRradio"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LRradio/Area2D"]
+position = Vector2(85.9999, 455.12)
+shape = SubResource("RectangleShape2D_djnhs")
+
+[connection signal="mouse_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_exited" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_exited" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_exited" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_shape_entered"]
