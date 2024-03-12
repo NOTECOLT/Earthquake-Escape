@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=29 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_8110v"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/LRoom_tvTable.png" id="2_jkrb6"]
@@ -12,17 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://dcv2i8uy0xod5" path="res://Art/Items/LRoom_lamp.png" id="10_devjx"]
 [ext_resource type="Texture2D" uid="uid://co3xtudpx1evw" path="res://Art/Items/highlight/LRoom_gobag_hl.png" id="11_ys58q"]
 [ext_resource type="Texture2D" uid="uid://ccf47vnvcjt66" path="res://Art/Items/LRoom_gobag.png" id="12_6ni2g"]
-[ext_resource type="Script" path="res://Scripts/Bag.gd" id="13_ee6xq"]
 [ext_resource type="Texture2D" uid="uid://c603waopl1wi" path="res://Art/Items/highlight/LRoom_ntbk_hl.png" id="14_8hcvb"]
 [ext_resource type="Texture2D" uid="uid://bo6snumegi223" path="res://Art/Items/LRoom_ntbk.png" id="15_nntuw"]
-[ext_resource type="Script" path="res://Scripts/LRnb.gd" id="16_cneay"]
+[ext_resource type="Script" path="res://Scripts/interactable.gd" id="16_ldbpy"]
 [ext_resource type="Texture2D" uid="uid://c16p6qcrhx3of" path="res://Art/Items/LRoom_shelf.png" id="17_jjq3y"]
 [ext_resource type="Texture2D" uid="uid://d0m5slrxbsh4o" path="res://Art/Items/highlight/LRoom_water_hl.png" id="18_vqlr6"]
 [ext_resource type="Texture2D" uid="uid://c8765radv8hps" path="res://Art/Items/LRoom_water.png" id="19_y5sqv"]
-[ext_resource type="Script" path="res://Scripts/LRwater.gd" id="20_1e2fb"]
 [ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/highlight/LRoom_radio_hl.png" id="21_wlujc"]
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/LRoom_radio.png" id="22_tpdy2"]
-[ext_resource type="Script" path="res://Scripts/LRradio.gd" id="23_j8gxp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06sm6"]
 animations = [{
@@ -168,7 +165,7 @@ position = Vector2(430, 448)
 scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_06sm6")
 animation = &"noHighlight"
-script = ExtResource("13_ee6xq")
+script = ExtResource("16_ldbpy")
 
 [node name="Area2D" type="Area2D" parent="LRbag"]
 position = Vector2(-86, -447)
@@ -182,7 +179,7 @@ position = Vector2(147, 307)
 scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_ld7up")
 animation = &"noHighlight"
-script = ExtResource("16_cneay")
+script = ExtResource("16_ldbpy")
 
 [node name="Area2D" type="Area2D" parent="LRnb"]
 position = Vector2(-86, -447)
@@ -201,7 +198,7 @@ position = Vector2(68.5097, 297.135)
 scale = Vector2(0.534431, 0.586468)
 sprite_frames = SubResource("SpriteFrames_3y1s8")
 animation = &"Highlight"
-script = ExtResource("20_1e2fb")
+script = ExtResource("16_ldbpy")
 
 [node name="Area2D" type="Area2D" parent="LRwater"]
 position = Vector2(-86, -447)
@@ -215,7 +212,7 @@ position = Vector2(580, 57)
 scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_i5abc")
 animation = &"Highlight"
-script = ExtResource("23_j8gxp")
+script = ExtResource("16_ldbpy")
 
 [node name="Area2D" type="Area2D" parent="LRradio"]
 position = Vector2(-86, -447)
@@ -224,11 +221,11 @@ position = Vector2(-86, -447)
 position = Vector2(85.9999, 455.12)
 shape = SubResource("RectangleShape2D_djnhs")
 
-[connection signal="mouse_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_shape_entered" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_exited" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_exited" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_exited" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_exited" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_exited" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_shape_exited"]
