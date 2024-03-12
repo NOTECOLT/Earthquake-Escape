@@ -13,7 +13,7 @@ func start_save(slot: int):
 		var player = Player.new()
 		player.name = "New"
 		print("Starting new save at " + filepath)
-		var result = ResourceSaver.save(player, filepath)
+		ResourceSaver.save(player, filepath)
 		return player
 
 func load_save(slot: int):

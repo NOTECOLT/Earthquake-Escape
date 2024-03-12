@@ -1,6 +1,7 @@
 extends Control
 
 var sdc = SaveDataController.new()
+@onready var gameData = get_node("/root/GameData")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,17 +13,27 @@ func _process(_delta):
 	pass
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_start_save_1_pressed():
-	sdc.start_save(0)
-
+	var player = sdc.start_save(0)
+	if (player == null): return
+	else:
+		start_game(player)
 
 func _on_start_save_2_pressed():
-	sdc.start_save(1)
-	pass # Replace with function body.
-
+	var player = sdc.start_save(1)
+	if (player == null): return
+	else:
+		start_game(player)
 
 func _on_start_save_3_pressed():
-	sdc.start_save(2)
-	pass # Replace with function body.
+	var player = sdc.start_save(2)
+	if (player == null): return
+	else:
+		start_game(player)
+		
+	
+func start_game(player: Player):
+	gameData.player = player
+	get_tree().change_scene_to_file("res://Scenes/living_room.tscn")
