@@ -11,7 +11,7 @@ func start_save(slot: int):
 		return null
 	else:
 		var player = Player.new()
-		player.name = "New"
+		player.name = "Player"
 		print("Starting new save at " + filepath)
 		ResourceSaver.save(player, filepath)
 		return player
