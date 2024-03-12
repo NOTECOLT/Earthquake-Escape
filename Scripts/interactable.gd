@@ -3,6 +3,7 @@ var collected = false
 var highlighted = false
 
 @export var item: Item
+@onready var gameData = get_node("/root/GameData")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,11 @@ func _process(_delta):
 			self.play("Highlight")
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				collected = true
+				if (item != null):
+					print("Player clicked on " + item.name + ".")
+					gameData.add_inventory_item(item)
+				else:
+					print("Player clicked on null item.")
 		else:
 			self.play("noHighlight")
 
