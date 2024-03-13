@@ -25,8 +25,19 @@ func load_save(slot: int):
 		if player is Player:
 			print("Loading " + filepath)
 			print("Name: " + player.name)
+			print("Inventory:")
+			for item in player.inventory:
+				print("- " + item.name)
 			print("Game Loaded with save " + filepath)
 			return player
 	else:
 		print("Cannot load file " + filepath + " because it does not exist.")
 		return null
+
+func save_file(slot: int, player: Player):
+	DirAccess.make_dir_absolute(save_path)
+	
+	var filepath = save_path + str("save", slot) + ".tres"
+	print("Saving at " + filepath)
+	ResourceSaver.save(player, filepath)
+	return player

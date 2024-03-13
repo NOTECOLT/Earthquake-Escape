@@ -1,38 +1,50 @@
 extends AnimatedSprite2D
+
+class_name Interactable
+
 var collected = false
 var highlighted = false
 
 @export var item: Item
+@export var is_collectible: bool
 @onready var gameData = get_node("/root/GameData")
+@export var dialogue: DialogueResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if (item != null):
+		for i in gameData.player.inventory:
+			if item == i:
+				self.queue_free()
+				break
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if collected:
-		self.queue_free()
+	if highlighted:
+		self.play("Highlight")
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			item_interact(gameData)
 	else:
-		if highlighted:
-			self.play("Highlight")
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				collected = true
-				if (item != null):
-					print("Player clicked on " + item.name + ".")
-					gameData.add_inventory_item(item)
-				else:
-					print("Player clicked on null item.")
+		self.play("noHighlight")
+
+func item_interact(gd: GameDataManager):
+	if (dialogue != null):
+		DialogueManager.show_dialogue_balloon(dialogue, "start")
+	if (is_collectible):
+		collected = true
+		if (item != null):
+			print("Player clicked on " + item.name + ".")
+			gd.add_inventory_item(item)
+			gd.save_data()
+			self.queue_free()
 		else:
-			self.play("noHighlight")
-
-
+			print("Player clicked on null item.")
+		return
+	else:
+		return
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):
 	highlighted = true
 
-
 func _on_area_2d_mouse_shape_exited(shape_idx):
 	highlighted = false
-

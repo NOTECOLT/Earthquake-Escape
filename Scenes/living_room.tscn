@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=35 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_8110v"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/LRoom_tvTable.png" id="2_jkrb6"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6snumegi223" path="res://Art/Items/LRoom_ntbk.png" id="15_nntuw"]
 [ext_resource type="Resource" uid="uid://d105cy8slc03n" path="res://Resources/Items/notebook.tres" id="16_k8kwd"]
 [ext_resource type="Script" path="res://Scripts/interactable.gd" id="16_ldbpy"]
+[ext_resource type="Resource" uid="uid://bt3wya1m5uaoc" path="res://Dialogue/notebook.dialogue" id="17_7sbjt"]
 [ext_resource type="Texture2D" uid="uid://c16p6qcrhx3of" path="res://Art/Items/LRoom_shelf.png" id="17_jjq3y"]
 [ext_resource type="Texture2D" uid="uid://d0m5slrxbsh4o" path="res://Art/Items/highlight/LRoom_water_hl.png" id="18_vqlr6"]
 [ext_resource type="Texture2D" uid="uid://c8765radv8hps" path="res://Art/Items/LRoom_water.png" id="19_y5sqv"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/highlight/LRoom_radio_hl.png" id="21_wlujc"]
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/LRoom_radio.png" id="22_tpdy2"]
 [ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="24_78ohv"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="25_3p55x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06sm6"]
 animations = [{
@@ -135,10 +137,6 @@ position = Vector2(406, 190.5)
 scale = Vector2(0.486842, 0.530093)
 texture = ExtResource("4_1n830")
 
-[node name="Inventory" type="Sprite2D" parent="."]
-position = Vector2(400, 562)
-texture = ExtResource("5_hdyxd")
-
 [node name="LRoomCouch" type="Sprite2D" parent="."]
 position = Vector2(570, 413)
 scale = Vector2(0.587909, 0.524725)
@@ -171,6 +169,7 @@ sprite_frames = SubResource("SpriteFrames_06sm6")
 animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("14_l50jl")
+is_collectible = true
 
 [node name="Area2D" type="Area2D" parent="LRbag"]
 position = Vector2(-86, -447)
@@ -186,6 +185,8 @@ sprite_frames = SubResource("SpriteFrames_ld7up")
 animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("16_k8kwd")
+is_collectible = true
+dialogue = ExtResource("17_7sbjt")
 
 [node name="Area2D" type="Area2D" parent="LRnb"]
 position = Vector2(-86, -447)
@@ -206,6 +207,7 @@ sprite_frames = SubResource("SpriteFrames_3y1s8")
 animation = &"Highlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("21_3bc5c")
+is_collectible = true
 
 [node name="Area2D" type="Area2D" parent="LRwater"]
 position = Vector2(-86, -447)
@@ -221,6 +223,7 @@ sprite_frames = SubResource("SpriteFrames_i5abc")
 animation = &"Highlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("24_78ohv")
+is_collectible = true
 
 [node name="Area2D" type="Area2D" parent="LRradio"]
 position = Vector2(-86, -447)
@@ -228,6 +231,111 @@ position = Vector2(-86, -447)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LRradio/Area2D"]
 position = Vector2(85.9999, 455.12)
 shape = SubResource("RectangleShape2D_djnhs")
+
+[node name="Inventory2" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 517.0
+offset_right = 799.0
+offset_bottom = 599.0
+texture = ExtResource("5_hdyxd")
+
+[node name="Item" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 21.0
+offset_right = 203.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+
+[node name="Item2" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 22.0
+offset_right = 275.0
+offset_bottom = 62.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 1
+
+[node name="Item3" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 21.0
+offset_right = 344.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 2
+
+[node name="Item4" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 18.0
+offset_right = 416.0
+offset_bottom = 58.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 3
+
+[node name="Item5" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 22.0
+offset_right = 487.0
+offset_bottom = 62.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 4
+
+[node name="Item6" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 20.0
+offset_right = 556.0
+offset_bottom = 60.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 5
+
+[node name="Item7" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 18.0
+offset_right = 628.0
+offset_bottom = 58.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 6
+
+[node name="Item8" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 21.0
+offset_right = 700.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 7
+
+[node name="Item9" type="TextureRect" parent="Inventory2"]
+layout_mode = 0
+offset_left = 731.0
+offset_top = 20.0
+offset_right = 771.0
+offset_bottom = 60.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("25_3p55x")
+slot = 8
 
 [connection signal="mouse_shape_entered" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_exited"]
