@@ -3,7 +3,7 @@ extends "res://addons/gut/test.gd"
 # UC2-S1
 # Player has no save files stored in any of the save slots
 # > Error Prompt saying no save file is contained within selected Save Slot
-func uc2_s1():
+func test_uc2_s1():
 	var path = "user://save/save3.tres"
 	if ResourceLoader.exists(path):
 		DirAccess.remove_absolute(path)
@@ -16,7 +16,7 @@ func uc2_s1():
 # UC2-S2
 # Player has at least one save file stored in any of the save slots
 # > Game Is Loaded with the savefile in the selected Save Slot
-func uc2_s2():
+func test_uc2_s2():
 	var path = "user://save/save3.tres"
 	if ResourceLoader.exists(path):
 		DirAccess.remove_absolute(path)
@@ -26,4 +26,5 @@ func uc2_s2():
 	
 	var result = sdc.load_save(3)
 	DirAccess.remove_absolute(path)
-	assert_eq(result, player, "Loading an existing save should proceed as usual")
+	assert_eq(result.name, player.name, "Loading an existing save should proceed as usual")
+	assert_eq_deep(result.inventory, player.inventory)
