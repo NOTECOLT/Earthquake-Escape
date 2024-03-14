@@ -20,20 +20,21 @@ func _on_load_save_1_pressed():
 	var player = sdc.load_save(0)
 	if (player == null): return
 	else:
-		load_game(player)
+		load_game(player, 0)
 
 func _on_load_save_2_pressed():
 	var player = sdc.load_save(1)
 	if (player == null): return
 	else:
-		load_game(player)
+		load_game(player, 1)
 
 func _on_load_save_3_pressed():
 	var player = sdc.load_save(2)
 	if (player == null): return
 	else:
-		load_game(player)
+		load_game(player, 2)
 		
-func load_game(player: Player):
+func load_game(player: Player, slot: int):
 	gameData.player = player
+	gameData.save_slot = slot
 	get_tree().change_scene_to_file("res://Scenes/living_room.tscn")
