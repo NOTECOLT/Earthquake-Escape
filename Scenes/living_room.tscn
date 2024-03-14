@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=39 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_8110v"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/LRoom_tvTable.png" id="2_jkrb6"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/highlight/LRoom_radio_hl.png" id="21_wlujc"]
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/LRoom_radio.png" id="22_tpdy2"]
 [ext_resource type="Texture2D" uid="uid://cts20a7u6rhda" path="res://Art/Items/highlight/Hmap.png" id="24_6vq1r"]
+[ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="24_78ohv"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="25_3p55x"]
 [ext_resource type="Texture2D" uid="uid://b4ejaey84lgdh" path="res://Art/Items/map.png" id="25_pbpy0"]
 [ext_resource type="Resource" uid="uid://chiusufjgfh83" path="res://Resources/Items/map.tres" id="26_qpn1i"]
@@ -243,6 +244,7 @@ scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_i5abc")
 animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
+item = ExtResource("24_78ohv")
 interact = 1
 
 [node name="Area2D" type="Area2D" parent="LRradio"]
