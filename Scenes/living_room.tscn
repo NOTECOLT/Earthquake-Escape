@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=38 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_8110v"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/LRoom_tvTable.png" id="2_jkrb6"]
@@ -24,8 +24,10 @@
 [ext_resource type="Resource" uid="uid://4e0mups22271" path="res://Resources/Items/water.tres" id="21_3bc5c"]
 [ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/highlight/LRoom_radio_hl.png" id="21_wlujc"]
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/LRoom_radio.png" id="22_tpdy2"]
-[ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="24_78ohv"]
+[ext_resource type="Texture2D" uid="uid://cts20a7u6rhda" path="res://Art/Items/highlight/Hmap.png" id="24_6vq1r"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="25_3p55x"]
+[ext_resource type="Texture2D" uid="uid://b4ejaey84lgdh" path="res://Art/Items/map.png" id="25_pbpy0"]
+[ext_resource type="Resource" uid="uid://chiusufjgfh83" path="res://Resources/Items/map.tres" id="26_qpn1i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06sm6"]
 animations = [{
@@ -115,6 +117,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djnhs"]
 size = Vector2(91.8524, 90.0555)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_biqeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_6vq1r")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_pbpy0")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
 [node name="LivingRoom" type="Node2D"]
 
 [node name="LRoomBg" type="Sprite2D" parent="."]
@@ -169,7 +190,7 @@ sprite_frames = SubResource("SpriteFrames_06sm6")
 animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("14_l50jl")
-is_collectible = true
+interact = 1
 
 [node name="Area2D" type="Area2D" parent="LRbag"]
 position = Vector2(-86, -447)
@@ -185,7 +206,7 @@ sprite_frames = SubResource("SpriteFrames_ld7up")
 animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("16_k8kwd")
-is_collectible = true
+interact = 1
 dialogue = ExtResource("17_7sbjt")
 
 [node name="Area2D" type="Area2D" parent="LRnb"]
@@ -207,7 +228,7 @@ sprite_frames = SubResource("SpriteFrames_3y1s8")
 animation = &"Highlight"
 script = ExtResource("16_ldbpy")
 item = ExtResource("21_3bc5c")
-is_collectible = true
+interact = 1
 
 [node name="Area2D" type="Area2D" parent="LRwater"]
 position = Vector2(-86, -447)
@@ -220,10 +241,9 @@ shape = SubResource("RectangleShape2D_c3irr")
 position = Vector2(580, 57)
 scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_i5abc")
-animation = &"Highlight"
+animation = &"noHighlight"
 script = ExtResource("16_ldbpy")
-item = ExtResource("24_78ohv")
-is_collectible = true
+interact = 1
 
 [node name="Area2D" type="Area2D" parent="LRradio"]
 position = Vector2(-86, -447)
@@ -232,14 +252,31 @@ position = Vector2(-86, -447)
 position = Vector2(85.9999, 455.12)
 shape = SubResource("RectangleShape2D_djnhs")
 
-[node name="Inventory2" type="TextureRect" parent="."]
+[node name="Test Map" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("popup")]
+position = Vector2(300, 57)
+scale = Vector2(0.69677, 0.67736)
+sprite_frames = SubResource("SpriteFrames_biqeq")
+animation = &"noHighlight"
+script = ExtResource("16_ldbpy")
+item = ExtResource("26_qpn1i")
+interact = 2
+popup = NodePath("../MapUI")
+
+[node name="Area2D" type="Area2D" parent="Test Map"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Map/Area2D"]
+position = Vector2(85.9999, 455.12)
+shape = SubResource("RectangleShape2D_djnhs")
+
+[node name="Inventory" type="TextureRect" parent="."]
 offset_left = -1.0
 offset_top = 517.0
 offset_right = 799.0
 offset_bottom = 599.0
 texture = ExtResource("5_hdyxd")
 
-[node name="Item" type="TextureRect" parent="Inventory2"]
+[node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 21.0
@@ -249,7 +286,7 @@ expand_mode = 2
 stretch_mode = 5
 script = ExtResource("25_3p55x")
 
-[node name="Item2" type="TextureRect" parent="Inventory2"]
+[node name="Item2" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 235.0
 offset_top = 22.0
@@ -260,7 +297,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 1
 
-[node name="Item3" type="TextureRect" parent="Inventory2"]
+[node name="Item3" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 304.0
 offset_top = 21.0
@@ -271,7 +308,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 2
 
-[node name="Item4" type="TextureRect" parent="Inventory2"]
+[node name="Item4" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 18.0
@@ -282,7 +319,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 3
 
-[node name="Item5" type="TextureRect" parent="Inventory2"]
+[node name="Item5" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 447.0
 offset_top = 22.0
@@ -293,7 +330,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 4
 
-[node name="Item6" type="TextureRect" parent="Inventory2"]
+[node name="Item6" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 516.0
 offset_top = 20.0
@@ -304,7 +341,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 5
 
-[node name="Item7" type="TextureRect" parent="Inventory2"]
+[node name="Item7" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 588.0
 offset_top = 18.0
@@ -315,7 +352,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 6
 
-[node name="Item8" type="TextureRect" parent="Inventory2"]
+[node name="Item8" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 660.0
 offset_top = 21.0
@@ -326,7 +363,7 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 7
 
-[node name="Item9" type="TextureRect" parent="Inventory2"]
+[node name="Item9" type="TextureRect" parent="Inventory"]
 layout_mode = 0
 offset_left = 731.0
 offset_top = 20.0
@@ -337,6 +374,13 @@ stretch_mode = 5
 script = ExtResource("25_3p55x")
 slot = 8
 
+[node name="MapUI" type="ColorRect" parent="."]
+visible = false
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 702.0
+offset_bottom = 430.0
+
 [connection signal="mouse_shape_entered" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_shape_entered"]
@@ -345,3 +389,5 @@ slot = 8
 [connection signal="mouse_shape_exited" from="LRwater/Area2D" to="LRwater" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRradio/Area2D" to="LRradio" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="Test Map/Area2D" to="Test Map" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Test Map/Area2D" to="Test Map" method="_on_area_2d_mouse_shape_exited"]

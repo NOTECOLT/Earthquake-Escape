@@ -2,13 +2,15 @@ extends AnimatedSprite2D
 
 class_name Interactable
 
-var collected = false
+enum ItemType { NONE, COLLECTABLE, UI }
+
 var highlighted = false
 
 @export var item: Item
-@export var is_collectible: bool
+@export var interact: ItemType = ItemType.NONE
 @onready var gameData = get_node("/root/GameData")
 @export var dialogue: DialogueResource
+@export var popup: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,18 +32,19 @@ func _process(_delta):
 func item_interact(gd: GameDataManager):
 	if (dialogue != null):
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
-	if (is_collectible):
-		collected = true
-		if (item != null):
-			print("Player clicked on " + item.name + ".")
-			gd.add_inventory_item(item)
-			gd.save_data()
-			self.queue_free()
-		else:
-			print("Player clicked on null item.")
-		return
-	else:
-		return
+	match (interact):
+		ItemType.COLLECTABLE:
+			if (item != null):
+				print("Player clicked on " + item.name + ".")
+				gd.add_inventory_item(item)
+				gd.save_data()
+				self.queue_free()
+			else:
+				print("Player clicked on null item.")
+		ItemType.UI:
+			if (popup != null):
+				popup.visible = !popup.visible
+	return
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):
 	highlighted = true
