@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bt07pwf5pbbdr" path="res://Art/Items/Living Room/table.png" id="5_35023"]
 [ext_resource type="Texture2D" uid="uid://8towb3ptj7pi" path="res://Art/Items/Living Room/tv.png" id="6_nabxi"]
 [ext_resource type="Texture2D" uid="uid://co2lcv33iprrs" path="res://Art/Items/Living Room/couch.png" id="7_xlid4"]
-[ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/inventory.png" id="8_1a0br"]
+[ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="8_1a0br"]
 [ext_resource type="Texture2D" uid="uid://hsq2elbfa1ks" path="res://Art/Items/Living Room/highlight/Hbag.png" id="9_3kc4a"]
 [ext_resource type="Texture2D" uid="uid://d4bwsgdktkuqo" path="res://Art/Items/Living Room/bag.png" id="10_owrey"]
 [ext_resource type="Script" path="res://Scripts/Bag.gd" id="11_hxn00"]
