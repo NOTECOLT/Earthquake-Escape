@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b71e77wamgiia"
-path="res://.godot/imported/LRoom_battery.png-604043ecb3ad54b1194583e8f13154fc.ctex"
+uid="uid://bmsptj1yhyycx"
+path="res://.godot/imported/inventory_slot.png-b67d325dc1461e45321c939e20c8d48a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Items/Living Room/highlight/LRoom_battery.png"
-dest_files=["res://.godot/imported/LRoom_battery.png-604043ecb3ad54b1194583e8f13154fc.ctex"]
+source_file="res://Art/UI/Inventory/inventory_slot.png"
+dest_files=["res://.godot/imported/inventory_slot.png-b67d325dc1461e45321c939e20c8d48a.ctex"]
 
 [params]
 

@@ -5,6 +5,7 @@ var sdc = SaveDataController.new()
 
 @export var player:Player
 @export var save_slot:int
+@export var disable_interactions:bool = false
 
 func _init():
 	player = Player.new()

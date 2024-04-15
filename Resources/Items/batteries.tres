@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://diuurbxodlxvw"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/item.gd" id="1_iaemx"]
+[ext_resource type="Texture2D" uid="uid://bh5qhfcyr8dxb" path="res://Art/Items/Living Room/highlight/LRoom_battery_hl.png" id="2_8lodh"]
+[ext_resource type="Texture2D" uid="uid://3cvfcmncur4v" path="res://Art/Items/Living Room/LRoom_battery.png" id="3_ckixr"]
+
+[resource]
+script = ExtResource("1_iaemx")
+name = "Batteries"
+texture = ExtResource("3_ckixr")
+selected_texture = ExtResource("2_8lodh")

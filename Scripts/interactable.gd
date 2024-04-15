@@ -2,15 +2,17 @@ extends AnimatedSprite2D
 
 class_name Interactable
 
-enum ItemType { NONE, COLLECTABLE, UI }
+enum ItemType { NONE, COLLECTABLE, UI, CHANGE_SCENE }
 
 var highlighted = false
 
 @export var item: Item
+@export var bypassDisableInteraction: bool = false
 @export var interact: ItemType = ItemType.NONE
 @onready var gameData = get_node("/root/GameData")
 @export var dialogue: DialogueResource
-@export var popup: Control
+@export var popup: Node
+@export var changeScene: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,12 +24,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if highlighted:
-		self.play("Highlight")
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			item_interact(gameData)
-	else:
-		self.play("noHighlight")
+	if !gameData.disable_interactions or bypassDisableInteraction:
+		if highlighted:
+			self.play("Highlight")
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				item_interact(gameData)
+		else:
+			self.play("noHighlight")
 
 func item_interact(gd: GameDataManager):
 	if (dialogue != null):
@@ -43,7 +46,10 @@ func item_interact(gd: GameDataManager):
 				print("Player clicked on null item.")
 		ItemType.UI:
 			if (popup != null):
+				gameData.disable_interactions = true
 				popup.visible = !popup.visible
+		ItemType.CHANGE_SCENE:
+			get_tree().change_scene_to_file(changeScene)
 	return
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):
