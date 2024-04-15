@@ -490,6 +490,7 @@ sprite_frames = SubResource("SpriteFrames_36wvh")
 animation = &"noHighlight"
 script = ExtResource("6_710gr")
 item = ExtResource("34_8xajb")
+bypassDisableInteraction = true
 interact = 1
 
 [node name="Area2D" type="Area2D" parent="Desk Pop-Up/Batteries"]
@@ -505,6 +506,7 @@ sprite_frames = SubResource("SpriteFrames_6w67h")
 animation = &"noHighlight"
 script = ExtResource("6_710gr")
 item = ExtResource("37_41vhe")
+bypassDisableInteraction = true
 interact = 1
 
 [node name="Area2D" type="Area2D" parent="Desk Pop-Up/Whistle"]
