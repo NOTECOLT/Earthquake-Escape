@@ -1,0 +1,336 @@
+[gd_scene load_steps=26 format=3 uid="uid://6p2j2ktfa4mu"]
+
+[ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="1_x25xb"]
+[ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="2_rmbl4"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="3_ri1io"]
+[ext_resource type="Texture2D" uid="uid://ct51qq8e6nwj5" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_bg.png" id="4_sq6ji"]
+[ext_resource type="Texture2D" uid="uid://drjpr14u5bwkg" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_locker_hl.png" id="5_hgnoj"]
+[ext_resource type="Texture2D" uid="uid://cg1fpbq4dtnx7" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_locker.png" id="6_1u58e"]
+[ext_resource type="Script" path="res://Scripts/interactable.gd" id="7_gitiu"]
+[ext_resource type="Texture2D" uid="uid://b3k8h6mehn7oe" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_map_hl.png" id="8_0owf1"]
+[ext_resource type="Texture2D" uid="uid://ci4tsvx3otg3w" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_map.png" id="9_7n6s4"]
+[ext_resource type="Script" path="res://Scripts/popup_screen.gd" id="10_fvthf"]
+[ext_resource type="Texture2D" uid="uid://cfj03hq3b3fog" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_lockerbig.png" id="10_kbax3"]
+[ext_resource type="Texture2D" uid="uid://66akbid7hbjj" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag_hl.png" id="12_orrx4"]
+[ext_resource type="Texture2D" uid="uid://dyiapq8y4qf3l" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag.png" id="13_1lncu"]
+[ext_resource type="Resource" uid="uid://bp1empf45q77o" path="res://Resources/Items/gobag.tres" id="16_58mi8"]
+[ext_resource type="Texture2D" uid="uid://bk86ygmsqu452" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-map/Hall_mapBig.png" id="17_5chup"]
+[ext_resource type="Texture2D" uid="uid://bbkm03kqbaf13" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_door_hl.png" id="17_xvsv0"]
+[ext_resource type="Texture2D" uid="uid://dnuunmt0c5nsa" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_door.png" id="18_bpv5s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wasr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hgnoj")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1u58e")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayrew"]
+size = Vector2(498.014, 649.379)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_js8n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0owf1")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7n6s4")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd62t"]
+size = Vector2(364.018, 285.712)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwssj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_xvsv0")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_bpv5s")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yemu0"]
+size = Vector2(331.565, 727.438)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gf41x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_orrx4")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1lncu")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gel3"]
+size = Vector2(452.588, 284.849)
+
+[node name="Hallway" type="Node2D"]
+
+[node name="Inventory" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 517.0
+offset_right = 799.0
+offset_bottom = 599.0
+texture = ExtResource("1_x25xb")
+
+[node name="Pause Button" type="TextureButton" parent="Inventory"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 137.0
+offset_bottom = 76.0
+texture_normal = ExtResource("2_rmbl4")
+
+[node name="Item" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 21.0
+offset_right = 203.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+
+[node name="Item2" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 22.0
+offset_right = 275.0
+offset_bottom = 62.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 1
+
+[node name="Item3" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 21.0
+offset_right = 344.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 2
+
+[node name="Item4" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 18.0
+offset_right = 416.0
+offset_bottom = 58.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 3
+
+[node name="Item5" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 22.0
+offset_right = 487.0
+offset_bottom = 62.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 4
+
+[node name="Item6" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 20.0
+offset_right = 556.0
+offset_bottom = 60.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 5
+
+[node name="Item7" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 18.0
+offset_right = 628.0
+offset_bottom = 58.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 6
+
+[node name="Item8" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 21.0
+offset_right = 700.0
+offset_bottom = 61.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 7
+
+[node name="Item9" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_left = 731.0
+offset_top = 20.0
+offset_right = 771.0
+offset_bottom = 60.0
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("3_ri1io")
+slot = 8
+
+[node name="HallBg" type="Sprite2D" parent="."]
+position = Vector2(399.5, 259)
+scale = Vector2(0.498125, 0.431667)
+texture = ExtResource("4_sq6ji")
+
+[node name="Locker" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("popup")]
+position = Vector2(140.161, 210.558)
+scale = Vector2(0.528097, 0.46198)
+sprite_frames = SubResource("SpriteFrames_4wasr")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 2
+popup = NodePath("../LockerPopUp")
+
+[node name="Area2D" type="Area2D" parent="Locker"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/Area2D"]
+position = Vector2(-14.2044, -41.8595)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ayrew")
+
+[node name="HallMap" type="AnimatedSprite2D" parent="Locker" node_paths=PackedStringArray("popup")]
+position = Vector2(537.476, -232.82)
+scale = Vector2(1.07432, 1.23095)
+sprite_frames = SubResource("SpriteFrames_js8n8")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 2
+popup = NodePath("../../MapPopUp")
+
+[node name="Area2D" type="Area2D" parent="Locker/HallMap"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/HallMap/Area2D"]
+position = Vector2(-7.73499, -38.9065)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cd62t")
+
+[node name="HWdoor" type="AnimatedSprite2D" parent="."]
+position = Vector2(670, 176)
+scale = Vector2(0.42224, 0.444024)
+sprite_frames = SubResource("SpriteFrames_lwssj")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 3
+changeScene = "res://Scenes/GameScenes/living_room.tscn"
+
+[node name="Area2D" type="Area2D" parent="HWdoor"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HWdoor/Area2D"]
+position = Vector2(-0.167847, -37.3607)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yemu0")
+
+[node name="LockerPopUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(400, 262)
+scale = Vector2(0.50156, 0.459893)
+texture = ExtResource("10_kbax3")
+script = ExtResource("10_fvthf")
+
+[node name="Button" type="Button" parent="LockerPopUp"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="GoBag" type="AnimatedSprite2D" parent="LockerPopUp"]
+position = Vector2(-85.7327, 173.953)
+sprite_frames = SubResource("SpriteFrames_gf41x")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+item = ExtResource("16_58mi8")
+bypassDisableInteraction = true
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="LockerPopUp/GoBag"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerPopUp/GoBag/Area2D"]
+position = Vector2(78.7295, 444.215)
+scale = Vector2(0.999999, 1)
+shape = SubResource("RectangleShape2D_8gel3")
+
+[node name="MapPopUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(400, 262)
+scale = Vector2(0.50156, 0.459893)
+texture = ExtResource("17_5chup")
+script = ExtResource("10_fvthf")
+
+[node name="Button" type="Button" parent="MapPopUp"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[connection signal="mouse_shape_entered" from="Locker/Area2D" to="Locker" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Locker/Area2D" to="Locker" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="Locker/HallMap/Area2D" to="Locker/HallMap" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Locker/HallMap/Area2D" to="Locker/HallMap" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="HWdoor/Area2D" to="HWdoor" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="HWdoor/Area2D" to="HWdoor" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="pressed" from="LockerPopUp/Button" to="LockerPopUp" method="close_popup"]
+[connection signal="mouse_shape_entered" from="LockerPopUp/GoBag/Area2D" to="LockerPopUp/GoBag" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="LockerPopUp/GoBag/Area2D" to="LockerPopUp/GoBag" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="pressed" from="MapPopUp/Button" to="MapPopUp" method="close_popup"]
