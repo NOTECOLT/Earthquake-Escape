@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6p2j2ktfa4mu"]
+[gd_scene load_steps=27 format=3 uid="uid://6p2j2ktfa4mu"]
 
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="1_x25xb"]
 [ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="2_rmbl4"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dyiapq8y4qf3l" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag.png" id="13_1lncu"]
 [ext_resource type="Resource" uid="uid://bp1empf45q77o" path="res://Resources/Items/gobag.tres" id="16_58mi8"]
 [ext_resource type="Texture2D" uid="uid://bk86ygmsqu452" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-map/Hall_mapBig.png" id="17_5chup"]
+[ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="17_bwu0x"]
 [ext_resource type="Texture2D" uid="uid://bbkm03kqbaf13" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_door_hl.png" id="17_xvsv0"]
 [ext_resource type="Texture2D" uid="uid://dnuunmt0c5nsa" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_door.png" id="18_bpv5s"]
 
@@ -108,6 +109,106 @@ size = Vector2(452.588, 284.849)
 
 [node name="Hallway" type="Node2D"]
 
+[node name="HallBg" type="Sprite2D" parent="."]
+position = Vector2(399.5, 259)
+scale = Vector2(0.498125, 0.431667)
+texture = ExtResource("4_sq6ji")
+
+[node name="Locker" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("popup")]
+position = Vector2(140.161, 210.558)
+scale = Vector2(0.528097, 0.46198)
+sprite_frames = SubResource("SpriteFrames_4wasr")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 2
+popup = NodePath("../LockerPopUp")
+
+[node name="Area2D" type="Area2D" parent="Locker"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/Area2D"]
+position = Vector2(-14.2044, -41.8595)
+shape = SubResource("RectangleShape2D_ayrew")
+
+[node name="HallMap" type="AnimatedSprite2D" parent="Locker" node_paths=PackedStringArray("popup")]
+position = Vector2(537.476, -232.82)
+scale = Vector2(1.07432, 1.23095)
+sprite_frames = SubResource("SpriteFrames_js8n8")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 2
+popup = NodePath("../../MapPopUp")
+
+[node name="Area2D" type="Area2D" parent="Locker/HallMap"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/HallMap/Area2D"]
+position = Vector2(-7.73499, -38.9065)
+shape = SubResource("RectangleShape2D_cd62t")
+
+[node name="HWdoor" type="AnimatedSprite2D" parent="."]
+position = Vector2(670, 176)
+scale = Vector2(0.42224, 0.444024)
+sprite_frames = SubResource("SpriteFrames_lwssj")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+interact = 3
+changeScene = "res://Scenes/GameScenes/living_room.tscn"
+
+[node name="Area2D" type="Area2D" parent="HWdoor"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HWdoor/Area2D"]
+position = Vector2(-0.167847, -37.3607)
+shape = SubResource("RectangleShape2D_yemu0")
+
+[node name="LockerPopUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(400, 262)
+scale = Vector2(0.50156, 0.459893)
+texture = ExtResource("10_kbax3")
+script = ExtResource("10_fvthf")
+
+[node name="Button" type="Button" parent="LockerPopUp"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="GoBag" type="AnimatedSprite2D" parent="LockerPopUp"]
+position = Vector2(-85.7327, 173.953)
+sprite_frames = SubResource("SpriteFrames_gf41x")
+animation = &"Highlight"
+script = ExtResource("7_gitiu")
+item = ExtResource("16_58mi8")
+bypassDisableInteraction = true
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="LockerPopUp/GoBag"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerPopUp/GoBag/Area2D"]
+position = Vector2(78.7295, 444.215)
+scale = Vector2(0.999999, 1)
+shape = SubResource("RectangleShape2D_8gel3")
+
+[node name="MapPopUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(400, 262)
+scale = Vector2(0.50156, 0.459893)
+texture = ExtResource("17_5chup")
+script = ExtResource("10_fvthf")
+
+[node name="Button" type="Button" parent="MapPopUp"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
 [node name="Inventory" type="TextureRect" parent="."]
 offset_left = -1.0
 offset_top = 517.0
@@ -116,12 +217,21 @@ offset_bottom = 599.0
 texture = ExtResource("1_x25xb")
 
 [node name="Pause Button" type="TextureButton" parent="Inventory"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 137.0
-offset_bottom = 76.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.232
+anchor_right = 0.155
+anchor_bottom = 0.805
+offset_left = -13.0
+offset_top = -13.024
+offset_right = 13.0
+offset_bottom = 9.99
 texture_normal = ExtResource("2_rmbl4")
+
+[node name="PauseUI" parent="Inventory/Pause Button" instance=ExtResource("17_bwu0x")]
+visible = false
+position = Vector2(124, -52)
 
 [node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0
@@ -221,109 +331,6 @@ stretch_mode = 5
 script = ExtResource("3_ri1io")
 slot = 8
 
-[node name="HallBg" type="Sprite2D" parent="."]
-position = Vector2(399.5, 259)
-scale = Vector2(0.498125, 0.431667)
-texture = ExtResource("4_sq6ji")
-
-[node name="Locker" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("popup")]
-position = Vector2(140.161, 210.558)
-scale = Vector2(0.528097, 0.46198)
-sprite_frames = SubResource("SpriteFrames_4wasr")
-animation = &"Highlight"
-script = ExtResource("7_gitiu")
-interact = 2
-popup = NodePath("../LockerPopUp")
-
-[node name="Area2D" type="Area2D" parent="Locker"]
-position = Vector2(7.27286, 38.4868)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/Area2D"]
-position = Vector2(-14.2044, -41.8595)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_ayrew")
-
-[node name="HallMap" type="AnimatedSprite2D" parent="Locker" node_paths=PackedStringArray("popup")]
-position = Vector2(537.476, -232.82)
-scale = Vector2(1.07432, 1.23095)
-sprite_frames = SubResource("SpriteFrames_js8n8")
-animation = &"Highlight"
-script = ExtResource("7_gitiu")
-interact = 2
-popup = NodePath("../../MapPopUp")
-
-[node name="Area2D" type="Area2D" parent="Locker/HallMap"]
-position = Vector2(7.27286, 38.4868)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/HallMap/Area2D"]
-position = Vector2(-7.73499, -38.9065)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_cd62t")
-
-[node name="HWdoor" type="AnimatedSprite2D" parent="."]
-position = Vector2(670, 176)
-scale = Vector2(0.42224, 0.444024)
-sprite_frames = SubResource("SpriteFrames_lwssj")
-animation = &"Highlight"
-script = ExtResource("7_gitiu")
-interact = 3
-changeScene = "res://Scenes/GameScenes/living_room.tscn"
-
-[node name="Area2D" type="Area2D" parent="HWdoor"]
-position = Vector2(7.27286, 38.4868)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HWdoor/Area2D"]
-position = Vector2(-0.167847, -37.3607)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_yemu0")
-
-[node name="LockerPopUp" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(400, 262)
-scale = Vector2(0.50156, 0.459893)
-texture = ExtResource("10_kbax3")
-script = ExtResource("10_fvthf")
-
-[node name="Button" type="Button" parent="LockerPopUp"]
-offset_left = 640.0
-offset_top = -512.0
-offset_right = 728.0
-offset_bottom = -400.0
-theme_override_font_sizes/font_size = 40
-text = "X"
-
-[node name="GoBag" type="AnimatedSprite2D" parent="LockerPopUp"]
-position = Vector2(-85.7327, 173.953)
-sprite_frames = SubResource("SpriteFrames_gf41x")
-animation = &"Highlight"
-script = ExtResource("7_gitiu")
-item = ExtResource("16_58mi8")
-bypassDisableInteraction = true
-interact = 1
-
-[node name="Area2D" type="Area2D" parent="LockerPopUp/GoBag"]
-position = Vector2(-86, -447)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerPopUp/GoBag/Area2D"]
-position = Vector2(78.7295, 444.215)
-scale = Vector2(0.999999, 1)
-shape = SubResource("RectangleShape2D_8gel3")
-
-[node name="MapPopUp" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(400, 262)
-scale = Vector2(0.50156, 0.459893)
-texture = ExtResource("17_5chup")
-script = ExtResource("10_fvthf")
-
-[node name="Button" type="Button" parent="MapPopUp"]
-offset_left = 640.0
-offset_top = -512.0
-offset_right = 728.0
-offset_bottom = -400.0
-theme_override_font_sizes/font_size = 40
-text = "X"
-
 [connection signal="mouse_shape_entered" from="Locker/Area2D" to="Locker" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="Locker/Area2D" to="Locker" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="Locker/HallMap/Area2D" to="Locker/HallMap" method="_on_area_2d_mouse_shape_entered"]
@@ -334,3 +341,4 @@ text = "X"
 [connection signal="mouse_shape_entered" from="LockerPopUp/GoBag/Area2D" to="LockerPopUp/GoBag" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LockerPopUp/GoBag/Area2D" to="LockerPopUp/GoBag" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="pressed" from="MapPopUp/Button" to="MapPopUp" method="close_popup"]
+[connection signal="pressed" from="Inventory/Pause Button" to="Inventory/Pause Button/PauseUI" method="_on_pause_button_pressed"]

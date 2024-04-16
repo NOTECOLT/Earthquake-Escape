@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=55 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_644jy"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/Living Room/LRoom_tvTable.png" id="2_0odye"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="26_i7xum"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="27_r63cd"]
 [ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="28_5br1i"]
+[ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="29_54dhq"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="29_ecdlk"]
 [ext_resource type="Texture2D" uid="uid://dhjicsou5kkkn" path="res://Art/Items/Living Room/LRoom_drawer.png" id="30_qelo4"]
 [ext_resource type="Script" path="res://Scripts/popup_screen.gd" id="31_krm3h"]
@@ -354,6 +355,53 @@ position = Vector2(-86, -447)
 position = Vector2(85.9999, 455.12)
 shape = SubResource("RectangleShape2D_djnhs")
 
+[node name="Desk Pop-Up" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(410, 269)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_qelo4")
+script = ExtResource("31_krm3h")
+
+[node name="Button" type="Button" parent="Desk Pop-Up"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="Batteries" type="AnimatedSprite2D" parent="Desk Pop-Up"]
+position = Vector2(-214, -18)
+sprite_frames = SubResource("SpriteFrames_36wvh")
+animation = &"noHighlight"
+script = ExtResource("6_710gr")
+item = ExtResource("34_8xajb")
+bypassDisableInteraction = true
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="Desk Pop-Up/Batteries"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk Pop-Up/Batteries/Area2D"]
+position = Vector2(87, 441)
+shape = SubResource("RectangleShape2D_cbxtr")
+
+[node name="Whistle" type="AnimatedSprite2D" parent="Desk Pop-Up"]
+position = Vector2(170, -20)
+sprite_frames = SubResource("SpriteFrames_6w67h")
+animation = &"noHighlight"
+script = ExtResource("6_710gr")
+item = ExtResource("37_41vhe")
+bypassDisableInteraction = true
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="Desk Pop-Up/Whistle"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk Pop-Up/Whistle/Area2D"]
+position = Vector2(81, 450)
+shape = SubResource("RectangleShape2D_dw3j7")
+
 [node name="Inventory" type="TextureRect" parent="."]
 offset_left = -1.0
 offset_top = 517.0
@@ -362,12 +410,21 @@ offset_bottom = 599.0
 texture = ExtResource("27_r63cd")
 
 [node name="Pause Button" type="TextureButton" parent="Inventory"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 137.0
-offset_bottom = 76.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.232
+anchor_right = 0.155
+anchor_bottom = 0.805
+offset_left = -13.0
+offset_top = -13.024
+offset_right = 13.0
+offset_bottom = 9.99
 texture_normal = ExtResource("28_5br1i")
+
+[node name="PauseUI" parent="Inventory/Pause Button" instance=ExtResource("29_54dhq")]
+visible = false
+position = Vector2(124, -52)
 
 [node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0
@@ -467,53 +524,6 @@ stretch_mode = 5
 script = ExtResource("29_ecdlk")
 slot = 8
 
-[node name="Desk Pop-Up" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(410, 269)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("30_qelo4")
-script = ExtResource("31_krm3h")
-
-[node name="Button" type="Button" parent="Desk Pop-Up"]
-offset_left = 640.0
-offset_top = -512.0
-offset_right = 728.0
-offset_bottom = -400.0
-theme_override_font_sizes/font_size = 40
-text = "X"
-
-[node name="Batteries" type="AnimatedSprite2D" parent="Desk Pop-Up"]
-position = Vector2(-214, -18)
-sprite_frames = SubResource("SpriteFrames_36wvh")
-animation = &"noHighlight"
-script = ExtResource("6_710gr")
-item = ExtResource("34_8xajb")
-bypassDisableInteraction = true
-interact = 1
-
-[node name="Area2D" type="Area2D" parent="Desk Pop-Up/Batteries"]
-position = Vector2(-86, -447)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk Pop-Up/Batteries/Area2D"]
-position = Vector2(87, 441)
-shape = SubResource("RectangleShape2D_cbxtr")
-
-[node name="Whistle" type="AnimatedSprite2D" parent="Desk Pop-Up"]
-position = Vector2(170, -20)
-sprite_frames = SubResource("SpriteFrames_6w67h")
-animation = &"noHighlight"
-script = ExtResource("6_710gr")
-item = ExtResource("37_41vhe")
-bypassDisableInteraction = true
-interact = 1
-
-[node name="Area2D" type="Area2D" parent="Desk Pop-Up/Whistle"]
-position = Vector2(-86, -447)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk Pop-Up/Whistle/Area2D"]
-position = Vector2(81, 450)
-shape = SubResource("RectangleShape2D_dw3j7")
-
 [connection signal="mouse_shape_entered" from="LRoomDoorBed/Area2D" to="LRoomDoorBed" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRoomDoorBed/Area2D" to="LRoomDoorBed" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRoomDesk/Area2D" to="LRoomDesk" method="_on_area_2d_mouse_shape_entered"]
@@ -531,3 +541,4 @@ shape = SubResource("RectangleShape2D_dw3j7")
 [connection signal="mouse_shape_exited" from="Desk Pop-Up/Batteries/Area2D" to="Desk Pop-Up/Batteries" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="Desk Pop-Up/Whistle/Area2D" to="Desk Pop-Up/Whistle" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="Desk Pop-Up/Whistle/Area2D" to="Desk Pop-Up/Whistle" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="pressed" from="Inventory/Pause Button" to="Inventory/Pause Button/PauseUI" method="_on_pause_button_pressed"]

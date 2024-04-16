@@ -37,4 +37,5 @@ func _on_start_save_3_pressed():
 func start_game(player: Player, slot: int):
 	gameData.player = player
 	gameData.save_slot = slot
-	get_tree().change_scene_to_file("res://Scenes/GameScenes/living_room.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/GameScenes/living_room.tscn")
+	get_tree().change_scene_to_file("res://Scenes/GameScenes/hallway.tscn")
