@@ -1,8 +1,137 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjyo2unbyeu88"]
+[gd_scene load_steps=30 format=3 uid="uid://bjyo2unbyeu88"]
 
+[ext_resource type="Texture2D" uid="uid://ds1s0dayeijkr" path="res://Art/BG/BRoom_bg.png" id="4_jd4lh"]
+[ext_resource type="Texture2D" uid="uid://0npw3kiiktqv" path="res://Art/Items/Bedroom/BRoom_bed-door_hl.png" id="5_l2rrk"]
+[ext_resource type="Texture2D" uid="uid://vk16s12mjodl" path="res://Art/Items/Bedroom/BRoom_bed-door.png" id="5_vtfvh"]
+[ext_resource type="Script" path="res://Scripts/interactable.gd" id="6_ohfok"]
+[ext_resource type="Texture2D" uid="uid://bn6lxmcnpjk6d" path="res://Art/Items/Bedroom/BRoom_dresser.png" id="7_hogfs"]
+[ext_resource type="Script" path="res://Scripts/Inventory/item.gd" id="8_gj2pt"]
+[ext_resource type="Texture2D" uid="uid://btykagb0skiqe" path="res://Art/Items/Bedroom/BRoom_flashlight_hl.png" id="10_1xoy1"]
+[ext_resource type="Texture2D" uid="uid://cg0e21240dgvu" path="res://Art/Items/Bedroom/BRoom_flashlight.png" id="11_fgstw"]
+[ext_resource type="Texture2D" uid="uid://ce7kxjmt5ev0m" path="res://Art/Items/Bedroom/BRoom_piggy_hl.png" id="12_0dkyp"]
+[ext_resource type="Texture2D" uid="uid://bkrs6vyy8abg5" path="res://Art/Items/Bedroom/BRoom_piggy.png" id="13_38h3q"]
+[ext_resource type="Texture2D" uid="uid://cynn4go5y6ihs" path="res://Art/Items/Bedroom/BRoom_popup_piggy.png" id="14_yfh18"]
+[ext_resource type="Script" path="res://Scripts/popup_screen.gd" id="15_ssun3"]
+[ext_resource type="Texture2D" uid="uid://di7np6txyhre1" path="res://Art/Items/Bedroom/BRoom_popup_money_hl.png" id="16_vhbp6"]
+[ext_resource type="Texture2D" uid="uid://bylrpodcun1pb" path="res://Art/Items/Bedroom/BRoom_popup_money.png" id="17_5wby6"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="27_3faw2"]
 [ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="28_l6jor"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="29_gwv7t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7nvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l2rrk")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vtfvh")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 0.0
+}]
+
+[sub_resource type="Resource" id="Resource_dgood"]
+script = ExtResource("8_gj2pt")
+name = "BRoomExit"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjkob"]
+size = Vector2(241.347, 632.129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1ohl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_hogfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqi4f"]
+size = Vector2(260.971, 350.316)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sasmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1xoy1")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fgstw")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_hfb1s"]
+script = ExtResource("8_gj2pt")
+name = "flashlight"
+texture = ExtResource("11_fgstw")
+selected_texture = ExtResource("10_1xoy1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hkyn"]
+size = Vector2(131.784, 70.1465)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wq4bm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0dkyp")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_38h3q")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77tec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_vhbp6")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_5wby6")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_d2rn1"]
+script = ExtResource("8_gj2pt")
+name = "Money"
+texture = ExtResource("17_5wby6")
+selected_texture = ExtResource("16_vhbp6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2dyj"]
+size = Vector2(659.5, 438)
 
 [node name="Bedroom" type="Node2D"]
 
@@ -126,3 +255,116 @@ offset_right = 668.0
 offset_bottom = 311.0
 theme_override_font_sizes/font_size = 50
 text = "THIS IS THE BEDROOM"
+
+[node name="BRoomBg" type="Sprite2D" parent="."]
+position = Vector2(400, 259)
+scale = Vector2(0.4975, 0.428333)
+texture = ExtResource("4_jd4lh")
+
+[node name="BRoomExit" type="AnimatedSprite2D" parent="BRoomBg"]
+position = Vector2(327.216, -150.87)
+scale = Vector2(0.722599, 0.763396)
+sprite_frames = SubResource("SpriteFrames_r7nvg")
+animation = &"noHighlight"
+script = ExtResource("6_ohfok")
+item = SubResource("Resource_dgood")
+interact = 3
+changeScene = "res://Scenes/GameScenes/living_room.tscn"
+
+[node name="Area2D" type="Area2D" parent="BRoomBg/BRoomExit"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BRoomBg/BRoomExit/Area2D"]
+position = Vector2(-9.46985, -45.7575)
+scale = Vector2(0.999999, 1)
+shape = SubResource("RectangleShape2D_jjkob")
+
+[node name="BRoomDresser" type="AnimatedSprite2D" parent="BRoomBg/BRoomExit"]
+position = Vector2(403.931, 503.451)
+scale = Vector2(1.08722, 1.23528)
+sprite_frames = SubResource("SpriteFrames_e1ohl")
+script = ExtResource("6_ohfok")
+interact = 2
+
+[node name="Area2D" type="Area2D" parent="BRoomBg/BRoomExit/BRoomDresser"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BRoomBg/BRoomExit/BRoomDresser/Area2D"]
+position = Vector2(77.1582, 72.303)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_sqi4f")
+
+[node name="BRoomFLight" type="AnimatedSprite2D" parent="BRoomBg/BRoomExit/BRoomDresser"]
+position = Vector2(-7.67657, -203.009)
+scale = Vector2(1.08722, 1.23528)
+sprite_frames = SubResource("SpriteFrames_sasmk")
+animation = &"Highlight"
+script = ExtResource("6_ohfok")
+item = SubResource("Resource_hfb1s")
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight/Area2D"]
+position = Vector2(2.14026, -39.4889)
+shape = SubResource("RectangleShape2D_6hkyn")
+
+[node name="BRoomPiggy" type="AnimatedSprite2D" parent="BRoomBg" node_paths=PackedStringArray("popup")]
+position = Vector2(-102.513, -121.401)
+scale = Vector2(1.08722, 1.23528)
+sprite_frames = SubResource("SpriteFrames_wq4bm")
+animation = &"Highlight"
+script = ExtResource("6_ohfok")
+interact = 2
+popup = NodePath("../../Piggy Pop-Up")
+
+[node name="Area2D" type="Area2D" parent="BRoomBg/BRoomPiggy"]
+position = Vector2(7.27286, 38.4868)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BRoomBg/BRoomPiggy/Area2D"]
+position = Vector2(2.14026, -39.4889)
+shape = SubResource("RectangleShape2D_6hkyn")
+
+[node name="Piggy Pop-Up" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(410, 269)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_yfh18")
+script = ExtResource("15_ssun3")
+
+[node name="Button" type="Button" parent="Piggy Pop-Up"]
+offset_left = 640.0
+offset_top = -512.0
+offset_right = 728.0
+offset_bottom = -400.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="Money" type="AnimatedSprite2D" parent="Piggy Pop-Up"]
+position = Vector2(94, 180)
+sprite_frames = SubResource("SpriteFrames_77tec")
+animation = &"Highlight"
+script = ExtResource("6_ohfok")
+item = SubResource("Resource_d2rn1")
+bypassDisableInteraction = true
+interact = 1
+
+[node name="Area2D" type="Area2D" parent="Piggy Pop-Up/Money"]
+position = Vector2(-86, -447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piggy Pop-Up/Money/Area2D"]
+position = Vector2(67.75, 454)
+shape = SubResource("RectangleShape2D_g2dyj")
+
+[connection signal="mouse_shape_entered" from="BRoomBg/BRoomExit/Area2D" to="BRoomBg/BRoomExit" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="BRoomBg/BRoomExit/Area2D" to="BRoomBg/BRoomExit" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="BRoomBg/BRoomExit/BRoomDresser/Area2D" to="BRoomBg/BRoomExit/BRoomDresser" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="BRoomBg/BRoomExit/BRoomDresser/Area2D" to="BRoomBg/BRoomExit/BRoomDresser" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight/Area2D" to="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight/Area2D" to="BRoomBg/BRoomExit/BRoomDresser/BRoomFLight" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="BRoomBg/BRoomPiggy/Area2D" to="BRoomBg/BRoomPiggy" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="BRoomBg/BRoomPiggy/Area2D" to="BRoomBg/BRoomPiggy" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="pressed" from="Piggy Pop-Up/Button" to="Piggy Pop-Up" method="close_popup"]
+[connection signal="mouse_shape_entered" from="Piggy Pop-Up/Money/Area2D" to="Piggy Pop-Up/Money" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Piggy Pop-Up/Money/Area2D" to="Piggy Pop-Up/Money" method="_on_area_2d_mouse_shape_exited"]

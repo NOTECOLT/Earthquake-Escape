@@ -245,7 +245,6 @@ position = Vector2(-86, -447)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LRoomDoorBed/Area2D"]
 position = Vector2(87.4352, 440.397)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_02od0")
 
 [node name="LRoomCouch" type="Sprite2D" parent="."]
@@ -268,7 +267,6 @@ position = Vector2(-86, -447)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LRoomDesk/Area2D"]
 position = Vector2(142.525, 396.963)
 rotation = -0.324631
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8udbc")
 
 [node name="LRoomChair" type="Sprite2D" parent="."]
