@@ -3,12 +3,14 @@
 [ext_resource type="Script" path="res://Scripts/load_ui.gd" id="1_c5bbe"]
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Art/UI/BACKGROUND.png" id="2_xe8vm"]
 
-[node name="LoadUI" type="Control"]
+[node name="LoadUI" type="Control" node_paths=PackedStringArray("error_label", "error_prompt")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 600.0
 script = ExtResource("1_c5bbe")
+error_label = NodePath("Error Prompt/Label")
+error_prompt = NodePath("Error Prompt")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(400, 300)
@@ -59,7 +61,33 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Load Game"
 
+[node name="Error Prompt" type="Panel" parent="."]
+offset_left = 249.0
+offset_top = 216.0
+offset_right = 569.0
+offset_bottom = 368.0
+
+[node name="Label" type="Label" parent="Error Prompt"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 299.0
+offset_bottom = 96.0
+text = "Save Slot Does not Exist.
+Please create a new one to play."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OK" type="Button" parent="Error Prompt"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 104.0
+offset_right = 207.0
+offset_bottom = 135.0
+text = "OK"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Load Save 3" to="." method="_on_load_save_3_pressed"]
 [connection signal="pressed" from="Load Save 2" to="." method="_on_load_save_2_pressed"]
 [connection signal="pressed" from="Load Save 1" to="." method="_on_load_save_1_pressed"]
+[connection signal="pressed" from="Error Prompt/OK" to="." method="close_error_prompt"]

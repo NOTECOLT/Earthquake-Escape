@@ -45,9 +45,9 @@ func _on_start_save_3_pressed():
 # allows the player to enter their name
 func open_start_prompt():
 	if (sdc.save_exists(opened_slot)):
-		start_label.text = "Save Slot " + str(opened_slot) + " exists! Creating a new\nsave will overwrite existing data.\nEnter your name:"
+		start_label.text = "Save Slot " + str(opened_slot + 1) + " exists! Creating a new\nsave will overwrite existing data.\nEnter your name:"
 	else:
-		start_label.text = "Creating a new save at slot " + str(opened_slot) +".\nEnter your name:"
+		start_label.text = "Creating a new save at slot " + str(opened_slot + 1) +".\nEnter your name:"
 	start_prompt_opened = true
 	start_prompt.visible = true
 
