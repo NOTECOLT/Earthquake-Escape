@@ -7,11 +7,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func _on_pause_save_but_pressed():
+	gameData.save_data()
 	pass # Replace with function body.
 
 

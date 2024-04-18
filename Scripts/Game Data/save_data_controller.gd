@@ -1,6 +1,7 @@
 class_name SaveDataController
 
 var save_path = "user://save/"
+var start_scene = "res://Scenes/GameScenes/living_room.tscn"
 
 func start_save(slot: int):
 	DirAccess.make_dir_absolute(save_path)
@@ -12,6 +13,7 @@ func start_save(slot: int):
 	else:
 		var player = Player.new()
 		player.name = "Player"
+		player.current_scene = start_scene
 		print("Starting new save at " + filepath)
 		ResourceSaver.save(player, filepath)
 		return player

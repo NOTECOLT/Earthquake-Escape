@@ -71,7 +71,7 @@ animations = [{
 "texture": ExtResource("7_hogfs")
 }],
 "loop": true,
-"name": &"default",
+"name": &"noHighlight",
 "speed": 0.0
 }]
 
@@ -155,7 +155,7 @@ shape = SubResource("RectangleShape2D_jjkob")
 position = Vector2(-102.513, -121.401)
 scale = Vector2(1.08722, 1.23528)
 sprite_frames = SubResource("SpriteFrames_wq4bm")
-animation = &"Highlight"
+animation = &"noHighlight"
 script = ExtResource("6_ohfok")
 interact = 2
 popup = NodePath("../../PiggyPop-Up")
@@ -171,8 +171,8 @@ shape = SubResource("RectangleShape2D_6hkyn")
 position = Vector2(619.096, 233.462)
 scale = Vector2(0.785624, 0.943008)
 sprite_frames = SubResource("SpriteFrames_e1ohl")
+animation = &"noHighlight"
 script = ExtResource("6_ohfok")
-interact = 2
 
 [node name="Area2D" type="Area2D" parent="BRoomBg/BRoomDresser"]
 position = Vector2(7.27286, 38.4868)
@@ -215,7 +215,7 @@ text = "X"
 [node name="Money" type="AnimatedSprite2D" parent="PiggyPop-Up"]
 position = Vector2(94, 180)
 sprite_frames = SubResource("SpriteFrames_77tec")
-animation = &"Highlight"
+animation = &"noHighlight"
 script = ExtResource("6_ohfok")
 item = ExtResource("18_dt0ei")
 bypassDisableInteraction = true
@@ -250,7 +250,10 @@ texture_normal = ExtResource("28_l6jor")
 
 [node name="PauseUI" parent="Inventory/Pause Button" instance=ExtResource("18_78mgl")]
 visible = false
-position = Vector2(124, -52)
+offset_left = 124.0
+offset_top = -52.0
+offset_right = 124.0
+offset_bottom = -52.0
 
 [node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0

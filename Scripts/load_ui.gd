@@ -37,5 +37,9 @@ func _on_load_save_3_pressed():
 func load_game(player: Player, slot: int):
 	gameData.player = player
 	gameData.save_slot = slot
-	#get_tree().change_scene_to_file("res://Scenes/GameScenes/living_room.tscn")
-	get_tree().change_scene_to_file("res://Scenes/GameScenes/hallway.tscn")
+	
+	gameData.disable_interactions = false
+	gameData.pause_game = false
+	
+	get_tree().change_scene_to_file(gameData.player.current_scene)
+	#get_tree().change_scene_to_file("res://Scenes/GameScenes/hallway.tscn")

@@ -21,6 +21,8 @@ func _ready():
 			if item == i:
 				self.queue_free()
 				break
+	highlighted = false
+	self.play("noHighlight")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -42,7 +44,7 @@ func item_interact(gd: GameDataManager):
 			if (item != null):
 				print("Player clicked on " + item.name + ".")
 				gd.add_inventory_item(item)
-				gd.save_data()
+				#gd.save_data()
 				self.queue_free()
 			else:
 				print("Player clicked on null item.")
@@ -51,11 +53,12 @@ func item_interact(gd: GameDataManager):
 				gameData.disable_interactions = true
 				popup.visible = !popup.visible
 		ItemType.CHANGE_SCENE:
+			gameData.player.current_scene = changeScene
 			get_tree().change_scene_to_file(changeScene)
 	return
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):
 	highlighted = true
 
-func _on_area_2d_mouse_shape_exited(shape_idx):
+func _on_area_2d_mouse_shape_exited(_shape_idx):
 	highlighted = false
