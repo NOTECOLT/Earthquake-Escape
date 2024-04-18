@@ -17,15 +17,15 @@ func _on_pause_save_but_pressed():
 
 
 func _on_pause_cont_but_pressed():
-	gameData.pause_game = false
+	gameData.unpause_game()
 	visible = false
 
 
 func _on_pause_exit_but_pressed():
-	gameData.pause_game = false
+	gameData.unpause_game()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_pause_button_pressed():
-	gameData.pause_game = true
+	gameData.pause_game()
 	visible = true

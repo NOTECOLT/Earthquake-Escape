@@ -7,7 +7,7 @@ var sdc = SaveDataController.new()
 @export var save_slot:int
 
 @export var disable_interactions:bool = false
-@export var pause_game:bool = false
+@export var game_paused:bool = false
 
 func _init():
 	player = Player.new()
@@ -21,3 +21,9 @@ func add_inventory_item(item: Item):
 func save_data():
 	sdc.save_file(save_slot, player)
 	return
+
+func pause_game():
+	game_paused = true
+
+func unpause_game():
+	game_paused = false

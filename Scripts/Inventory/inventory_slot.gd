@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (item == null and slot < gameData.player.inventory.size()):
 		if (gameData.player.inventory[slot] != null):
 			item = gameData.player.inventory[slot]
