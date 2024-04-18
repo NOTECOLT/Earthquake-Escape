@@ -3,6 +3,10 @@ class_name SaveDataController
 var save_path = "user://save/"
 var start_scene = "res://Scenes/GameScenes/living_room.tscn"
 
+func save_exists(slot: int) -> bool:
+	var filepath = save_path + str("save", slot) + ".tres"
+	return ResourceLoader.exists(filepath)
+	
 func start_save(slot: int):
 	DirAccess.make_dir_absolute(save_path)
 	
