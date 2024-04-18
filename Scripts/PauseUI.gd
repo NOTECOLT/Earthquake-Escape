@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Control
 @onready var gameData = get_node("/root/GameData")
 
 # Called when the node enters the scene tree for the first time.
@@ -16,15 +16,15 @@ func _on_pause_save_but_pressed():
 
 
 func _on_pause_cont_but_pressed():
-	gameData.disable_interactions = false
+	gameData.pause_game = false
 	visible = false
 
 
 func _on_pause_exit_but_pressed():
-	gameData.disable_interactions = false
+	gameData.pause_game = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_pause_button_pressed():
-	gameData.disable_interactions = true
+	gameData.pause_game = true
 	visible = true
