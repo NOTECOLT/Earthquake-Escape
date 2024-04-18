@@ -3,3 +3,4 @@ This is a course requirement for CS 191/192 Software Engineering Courses of the 
 
 - John Ross Derez
 - Diego Montenejo
+- Erika Pura
