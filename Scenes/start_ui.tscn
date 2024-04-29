@@ -17,7 +17,7 @@ start_label = NodePath("Start Prompt/Label")
 line_edit = NodePath("Start Prompt/PlayerEdit Name")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(400, 300)
+position = Vector2(402, 300)
 texture = ExtResource("1_oubs1")
 
 [node name="Button" type="Button" parent="."]
