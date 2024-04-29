@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/Living Room/LRoom_radio.png" id="25_iwqdc"]
 [ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="26_i7xum"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="27_r63cd"]
-[ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="28_5br1i"]
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="29_54dhq"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="29_ecdlk"]
 [ext_resource type="Texture2D" uid="uid://dhjicsou5kkkn" path="res://Art/Items/Living Room/LRoom_drawer.png" id="30_qelo4"]
@@ -36,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://3cvfcmncur4v" path="res://Art/Items/Living Room/LRoom_battery.png" id="33_xu1iw"]
 [ext_resource type="Resource" uid="uid://diuurbxodlxvw" path="res://Resources/Items/batteries.tres" id="34_8xajb"]
 [ext_resource type="Texture2D" uid="uid://hdwd62qp013q" path="res://Art/Items/Living Room/highlight/LRoom_whistle_hl.png" id="35_gjnx0"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="36_3exwm"]
 [ext_resource type="Texture2D" uid="uid://bq7pynfj7q23k" path="res://Art/Items/Living Room/LRoom_whistle.png" id="36_ep31m"]
 [ext_resource type="Resource" uid="uid://cy7v01u2a4cpo" path="res://Resources/Items/whistle.tres" id="37_41vhe"]
 
@@ -409,7 +409,7 @@ offset_right = 799.0
 offset_bottom = 599.0
 texture = ExtResource("27_r63cd")
 
-[node name="Pause Button" type="TextureButton" parent="Inventory"]
+[node name="Pause Button" type="Button" parent="Inventory"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.025
@@ -418,13 +418,19 @@ anchor_right = 0.155
 anchor_bottom = 0.805
 offset_left = -13.0
 offset_top = -13.024
-offset_right = 13.0
-offset_bottom = 9.99
-texture_normal = ExtResource("28_5br1i")
+offset_right = 141.0
+offset_bottom = 77.99
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("36_3exwm")
+text = "PAUSE"
 
 [node name="PauseUI" parent="Inventory/Pause Button" instance=ExtResource("29_54dhq")]
 visible = false
-position = Vector2(124, -52)
+offset_left = 253.0
+offset_top = -115.0
+offset_right = 253.0
+offset_bottom = -115.0
+scale = Vector2(2, 2)
 
 [node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0

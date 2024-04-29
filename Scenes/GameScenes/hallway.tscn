@@ -1,7 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://6p2j2ktfa4mu"]
 
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="1_x25xb"]
-[ext_resource type="Texture2D" uid="uid://d2l5vxd55bh0j" path="res://Art/UI/Inventory/inventory_buttonPause.png" id="2_rmbl4"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="3_ri1io"]
 [ext_resource type="Texture2D" uid="uid://ct51qq8e6nwj5" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_bg.png" id="4_sq6ji"]
 [ext_resource type="Texture2D" uid="uid://drjpr14u5bwkg" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_locker_hl.png" id="5_hgnoj"]
@@ -14,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://66akbid7hbjj" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag_hl.png" id="12_orrx4"]
 [ext_resource type="Texture2D" uid="uid://dyiapq8y4qf3l" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag.png" id="13_1lncu"]
 [ext_resource type="Resource" uid="uid://bp1empf45q77o" path="res://Resources/Items/gobag.tres" id="16_58mi8"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="16_r0ccs"]
 [ext_resource type="Texture2D" uid="uid://bk86ygmsqu452" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-map/Hall_mapBig.png" id="17_5chup"]
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="17_bwu0x"]
 [ext_resource type="Texture2D" uid="uid://bbkm03kqbaf13" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_door_hl.png" id="17_xvsv0"]
@@ -216,7 +216,7 @@ offset_right = 799.0
 offset_bottom = 599.0
 texture = ExtResource("1_x25xb")
 
-[node name="Pause Button" type="TextureButton" parent="Inventory"]
+[node name="Pause Button" type="Button" parent="Inventory"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.025
@@ -225,16 +225,19 @@ anchor_right = 0.155
 anchor_bottom = 0.805
 offset_left = -13.0
 offset_top = -13.024
-offset_right = 13.0
-offset_bottom = 9.99
-texture_normal = ExtResource("2_rmbl4")
+offset_right = 141.0
+offset_bottom = 77.99
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("16_r0ccs")
+text = "PAUSE"
 
 [node name="PauseUI" parent="Inventory/Pause Button" instance=ExtResource("17_bwu0x")]
 visible = false
-offset_left = 124.0
-offset_top = -52.0
-offset_right = 124.0
-offset_bottom = -52.0
+offset_left = 253.0
+offset_top = -115.0
+offset_right = 253.0
+offset_bottom = -115.0
+scale = Vector2(2, 2)
 
 [node name="Item" type="TextureRect" parent="Inventory"]
 layout_mode = 0

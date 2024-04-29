@@ -38,7 +38,7 @@ offset_right = 920.0
 offset_bottom = 240.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_t0rgd")
-text = "START SAVE SLOT 3"
+text = "START SAVE 3"
 
 [node name="Start Save 2" type="Button" parent="."]
 layout_mode = 0
@@ -48,7 +48,7 @@ offset_right = 713.0
 offset_bottom = 240.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_t0rgd")
-text = "START SAVE SLOT 2"
+text = "START SAVE 2"
 
 [node name="Start Save 1" type="Button" parent="."]
 layout_mode = 0
@@ -58,7 +58,7 @@ offset_right = 504.0
 offset_bottom = 240.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_t0rgd")
-text = "START SAVE SLOT 1"
+text = "START SAVE 1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

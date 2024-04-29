@@ -1,5 +1,6 @@
 extends Control
 @onready var gameData = get_node("/root/GameData")
+@export var game_saved: Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
