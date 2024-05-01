@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c536ocrlojr66"]
+
+[ext_resource type="Texture2D" uid="uid://qpmnbslwnkij" path="res://Art/Minigame/BG/minigame_floor.png" id="1_7c20f"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.571)
+texture = ExtResource("1_7c20f")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1, 0.571)
+polygon = PackedVector2Array(3200, 404, 0, 404, 0, 0, 3200, 0)
