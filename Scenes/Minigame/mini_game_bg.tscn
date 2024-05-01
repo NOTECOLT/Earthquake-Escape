@@ -6,7 +6,7 @@
 
 [node name="BGwall" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
-motion_offset = Vector2(1, 0)
+motion_mirroring = Vector2(2495, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="BGwall"]
 position = Vector2(4, 3)

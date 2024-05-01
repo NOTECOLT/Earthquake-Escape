@@ -32,7 +32,7 @@ var last_obs
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_window().size
-	print(screen_size, ground_height)
+	#print(screen_size, ground_height)
 	ground_height = $Floor.get_node("Sprite2D").texture.get_height()
 	#$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
@@ -64,10 +64,8 @@ func new_game():
 func _process(delta):
 	if game_running:
 		#speed up and adjust difficulty
-		speed = START_SPEED + score / SPEED_MODIFIER
-		if speed > MAX_SPEED:
-			speed = MAX_SPEED
-		adjust_difficulty()
+		speed = START_SPEED
+
 		
 		#generate obstacles
 		generate_obs()
@@ -76,9 +74,6 @@ func _process(delta):
 		$Dino.position.x += speed
 		$Camera2D.position.x += speed
 		
-		#update score
-		score += speed
-		#show_score()
 		
 		#update ground position
 		if $Camera2D.position.x - $Floor.position.x > screen_size.x * 1.5:
@@ -91,27 +86,36 @@ func _process(delta):
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			game_running = true
-			#$HUD.get_node("StartLabel").hide()
 
 func generate_obs():
-	#generate ground obstacles
-	if obstacles.is_empty() or last_obs.position.x < randi_range(300, 500):
-		var obs_type = down_obs[randi() % down_obs.size()]
+	#print(obstacles.is_empty(), last_obs)
+	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
+		var is_up = randi_range(0, 1)
+		var obs_type
+		if is_up:
+			obs_type = up_obs[randi() % up_obs.size()]
+		else:
+			obs_type = down_obs[randi() % down_obs.size()]
 		var obs
-		var max_obs = 2
+		var max_obs = 1
 		for i in range(randi() % max_obs + 1):
 			obs = obs_type.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_x : int = screen_size.x + 100 + (i * 100)
-			var obs_y : int = screen_size.y - (obs_height * obs_scale.y / 2) + 5
+			var obs_x : int = $Dino.position.x + screen_size.x + 100 + (i * 100)
+			var obs_y : int
+			if is_up:
+				obs_y = (obs_height * obs_scale.y / 2) + 5
+			else:
+				obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
+			#print(obs_x, obs_y)
 			add_obs(obs, obs_x, obs_y)
 
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
-	#obs.body_entered.connect(hit_obs)
+	obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
 
@@ -119,22 +123,12 @@ func remove_obs(obs):
 	obs.queue_free()
 	obstacles.erase(obs)
 	
-#func hit_obs(body):
-	#if body.name == "Dino":
+func hit_obs(body):
+	if body.name == "Dino":
+		print("game over")
+		get_tree().paused = true
 		#game_over()
 
-#func show_score():
-	#$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score / SCORE_MODIFIER)
-
-#func check_high_score():
-	#if score > high_score:
-		#high_score = score
-		#$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / SCORE_MODIFIER)
-
-func adjust_difficulty():
-	difficulty = score / SPEED_MODIFIER
-	if difficulty > MAX_DIFFICULTY:
-		difficulty = MAX_DIFFICULTY
 
 #func game_over():
 	#check_high_score()
