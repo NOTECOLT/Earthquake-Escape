@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://du2q2hkr7qo1j"]
+
+[ext_resource type="Texture2D" uid="uid://cqr3qwgq6mkpp" path="res://Art/Minigame/BG/minigame_BGhalf.png" id="1_lskkt"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="BGwall" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(2495, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BGwall"]
+position = Vector2(4, 3)
+scale = Vector2(0.779375, 0.600653)
+texture = ExtResource("1_lskkt")
+centered = false

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://nsfjk8ic3vkw"]
+
+[ext_resource type="Script" path="res://Scenes/Minigame/main_minigame.gd" id="1_trhyu"]
+[ext_resource type="PackedScene" uid="uid://du2q2hkr7qo1j" path="res://Scenes/Minigame/mini_game_bg.tscn" id="1_w6kwj"]
+[ext_resource type="PackedScene" uid="uid://c536ocrlojr66" path="res://Scenes/Minigame/floor.tscn" id="2_vt5ij"]
+[ext_resource type="PackedScene" uid="uid://d2qmpdpq203mp" path="res://Scenes/Minigame/dino.tscn" id="3_c0gts"]
+
+[node name="Main_minigame" type="Node"]
+script = ExtResource("1_trhyu")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_w6kwj")]
+
+[node name="Floor" parent="." instance=ExtResource("2_vt5ij")]
+position = Vector2(2, 556)
+
+[node name="Dino" parent="." instance=ExtResource("3_c0gts")]
+position = Vector2(120, 464)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

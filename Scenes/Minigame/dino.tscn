@@ -1,0 +1,149 @@
+[gd_scene load_steps=22 format=3 uid="uid://d2qmpdpq203mp"]
+
+[ext_resource type="Texture2D" uid="uid://bkl4ebh1m74t1" path="res://Art/Minigame/BG/DinoSprites - vita.png" id="1_dtfq0"]
+[ext_resource type="Script" path="res://Scenes/Minigame/dino.gd" id="1_nfnwi"]
+[ext_resource type="Texture2D" uid="uid://b3hshjikvh80t" path="res://Art/Minigame/sprite_crawl.png" id="2_xtkdc"]
+[ext_resource type="Texture2D" uid="uid://ji43lnliod2t" path="res://Art/Minigame/sprite_jump.png" id="4_4hukj"]
+[ext_resource type="Texture2D" uid="uid://buoi5au1jmuus" path="res://Art/Minigame/sprite_run.png" id="5_yr3q6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wrng"]
+atlas = ExtResource("2_xtkdc")
+region = Rect2(0, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aid12"]
+atlas = ExtResource("2_xtkdc")
+region = Rect2(542, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq0n8"]
+atlas = ExtResource("1_dtfq0")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpwcs"]
+atlas = ExtResource("1_dtfq0")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ogy"]
+atlas = ExtResource("1_dtfq0")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfo8l"]
+atlas = ExtResource("1_dtfq0")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5iin"]
+atlas = ExtResource("4_4hukj")
+region = Rect2(0, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd5nf"]
+atlas = ExtResource("4_4hukj")
+region = Rect2(542, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t46oy"]
+atlas = ExtResource("4_4hukj")
+region = Rect2(1084, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfybv"]
+atlas = ExtResource("5_yr3q6")
+region = Rect2(0, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx1xo"]
+atlas = ExtResource("5_yr3q6")
+region = Rect2(542, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwrqi"]
+atlas = ExtResource("5_yr3q6")
+region = Rect2(1084, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f02v"]
+atlas = ExtResource("5_yr3q6")
+region = Rect2(1626, 0, 542, 594)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sacjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wrng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aid12")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq0n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpwcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5ogy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfo8l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5iin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd5nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t46oy")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfybv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx1xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwrqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f02v")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0es16"]
+radius = 94.0
+height = 498.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlsd"]
+size = Vector2(466, 324)
+
+[node name="Dino" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_nfnwi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sacjq")
+animation = &"duck"
+autoplay = "run"
+frame_progress = 0.92188
+
+[node name="Run" type="CollisionShape2D" parent="."]
+position = Vector2(-42, -20)
+shape = SubResource("CapsuleShape2D_0es16")
+debug_color = Color(0.341176, 0.611765, 0.282353, 0.419608)
+
+[node name="Duck" type="CollisionShape2D" parent="."]
+position = Vector2(11, 108)
+shape = SubResource("RectangleShape2D_lhlsd")
+debug_color = Color(0.882353, 0.317647, 0.298039, 0.419608)
