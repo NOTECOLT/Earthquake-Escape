@@ -9,4 +9,7 @@ class_name Player
 	"living_room_entered": false,
 	"bedroom_entered": false,
 	"open_piggy_bank": false,
+	"hallway_entered": false,
+	"open_map": false,
+	"open_locker": false,
 }

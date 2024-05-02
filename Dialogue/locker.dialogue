@@ -1,0 +1,10 @@
+~ start
+
+if gameData.has_inventory_item("Bag"):
+	{{player_name}}: I'm glad I packed my Go-bag.
+	{{player_name}}: Now I feel a little bit more prepared for a calamity than without it.
+else:
+	{{player_name}}: My locker only has a couple books in it. 
+		It does feel a bit empty though, I wonder why?
+
+=> END

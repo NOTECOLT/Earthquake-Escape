@@ -1,21 +1,25 @@
-[gd_scene load_steps=27 format=3 uid="uid://6p2j2ktfa4mu"]
+[gd_scene load_steps=31 format=3 uid="uid://6p2j2ktfa4mu"]
 
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_wwxid"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="1_x25xb"]
+[ext_resource type="Resource" uid="uid://dtp1rlck3opc8" path="res://Dialogue/Rooms/hallway.dialogue" id="2_5lc7y"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="3_ri1io"]
 [ext_resource type="Texture2D" uid="uid://ct51qq8e6nwj5" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_bg.png" id="4_sq6ji"]
 [ext_resource type="Texture2D" uid="uid://drjpr14u5bwkg" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_locker_hl.png" id="5_hgnoj"]
 [ext_resource type="Texture2D" uid="uid://cg1fpbq4dtnx7" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_locker.png" id="6_1u58e"]
 [ext_resource type="Script" path="res://Scripts/interactable.gd" id="7_gitiu"]
+[ext_resource type="Resource" uid="uid://dbgq0rntx1d6j" path="res://Dialogue/locker.dialogue" id="7_t6nwi"]
 [ext_resource type="Texture2D" uid="uid://b3k8h6mehn7oe" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_map_hl.png" id="8_0owf1"]
 [ext_resource type="Texture2D" uid="uid://ci4tsvx3otg3w" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_map.png" id="9_7n6s4"]
+[ext_resource type="Resource" uid="uid://c6k4hrfkjhcdb" path="res://Dialogue/map.dialogue" id="9_or2dy"]
 [ext_resource type="Script" path="res://Scripts/popup_screen.gd" id="10_fvthf"]
 [ext_resource type="Texture2D" uid="uid://cfj03hq3b3fog" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_lockerbig.png" id="10_kbax3"]
 [ext_resource type="Texture2D" uid="uid://66akbid7hbjj" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag_hl.png" id="12_orrx4"]
 [ext_resource type="Texture2D" uid="uid://dyiapq8y4qf3l" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-locker/Hall_gobag.png" id="13_1lncu"]
-[ext_resource type="Resource" uid="uid://bp1empf45q77o" path="res://Resources/Items/gobag.tres" id="16_58mi8"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="16_r0ccs"]
 [ext_resource type="Texture2D" uid="uid://bk86ygmsqu452" path="res://Art/Hallway-20240416T015304Z-001/Hallway/popup-map/Hall_mapBig.png" id="17_5chup"]
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="17_bwu0x"]
+[ext_resource type="Script" path="res://Scripts/gobag.gd" id="17_x6w6j"]
 [ext_resource type="Texture2D" uid="uid://bbkm03kqbaf13" path="res://Art/Hallway-20240416T015304Z-001/Hallway/highlight/Hall_door_hl.png" id="17_xvsv0"]
 [ext_resource type="Texture2D" uid="uid://dnuunmt0c5nsa" path="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_door.png" id="18_bpv5s"]
 
@@ -108,6 +112,9 @@ animations = [{
 size = Vector2(452.588, 284.849)
 
 [node name="Hallway" type="Node2D"]
+script = ExtResource("1_wwxid")
+flag_enter = "hallway_entered"
+on_enter_dialogue = ExtResource("2_5lc7y")
 
 [node name="HallBg" type="Sprite2D" parent="."]
 position = Vector2(399.5, 259)
@@ -121,6 +128,8 @@ sprite_frames = SubResource("SpriteFrames_4wasr")
 animation = &"Highlight"
 script = ExtResource("7_gitiu")
 interact = 2
+popup_flag = "open_locker"
+popup_dialogue = ExtResource("7_t6nwi")
 popup = NodePath("../LockerPopUp")
 
 [node name="Area2D" type="Area2D" parent="Locker"]
@@ -137,6 +146,8 @@ sprite_frames = SubResource("SpriteFrames_js8n8")
 animation = &"Highlight"
 script = ExtResource("7_gitiu")
 interact = 2
+popup_flag = "open_map"
+popup_dialogue = ExtResource("9_or2dy")
 popup = NodePath("../../MapPopUp")
 
 [node name="Area2D" type="Area2D" parent="Locker/HallMap"]
@@ -180,11 +191,8 @@ text = "X"
 [node name="GoBag" type="AnimatedSprite2D" parent="LockerPopUp"]
 position = Vector2(-85.7327, 173.953)
 sprite_frames = SubResource("SpriteFrames_gf41x")
-animation = &"Highlight"
-script = ExtResource("7_gitiu")
-item = ExtResource("16_58mi8")
-bypassDisableInteraction = true
-interact = 1
+animation = &"noHighlight"
+script = ExtResource("17_x6w6j")
 
 [node name="Area2D" type="Area2D" parent="LockerPopUp/GoBag"]
 position = Vector2(-86, -447)

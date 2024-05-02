@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dbgq0rntx1d6j"
+path="res://.godot/imported/locker.dialogue-ea01ea7359a9305be8e6eeebbd796764.tres"
+
+[deps]
+
+source_file="res://Dialogue/locker.dialogue"
+dest_files=["res://.godot/imported/locker.dialogue-ea01ea7359a9305be8e6eeebbd796764.tres"]
+
+[params]
+
+defaults=true
