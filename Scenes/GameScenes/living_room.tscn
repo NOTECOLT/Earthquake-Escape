@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=56 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_644jy"]
+[ext_resource type="Script" path="res://Scripts/living_room.gd" id="1_itrds"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/Living Room/LRoom_tvTable.png" id="2_0odye"]
 [ext_resource type="Texture2D" uid="uid://e44h4id47ul2" path="res://Art/Items/Living Room/LRoom_tv.png" id="3_q0ow0"]
 [ext_resource type="Texture2D" uid="uid://krfpd6r52aur" path="res://Art/Items/Living Room/highlight/LRoom_doorBed_hl.png" id="4_jrvuq"]
@@ -216,6 +217,7 @@ animations = [{
 size = Vector2(410, 402)
 
 [node name="LivingRoom" type="Node2D"]
+script = ExtResource("1_itrds")
 
 [node name="LRoomBg" type="Sprite2D" parent="."]
 position = Vector2(400.25, 299)
