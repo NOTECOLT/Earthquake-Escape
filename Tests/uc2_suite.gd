@@ -22,7 +22,7 @@ func test_uc2_s2():
 		DirAccess.remove_absolute(path)
 	
 	var sdc = SaveDataController.new()
-	var player = sdc.start_save(3)
+	var player = sdc.start_save(3)[0]
 	
 	var result = sdc.load_save(3)
 	DirAccess.remove_absolute(path)

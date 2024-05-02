@@ -58,8 +58,8 @@ func close_start_prompt():
 
 func start_game():
 	DirAccess.remove_absolute("user://save/" + str("save", opened_slot) + ".tres")
-	var player = sdc.start_save(opened_slot)
-	
+	var player = sdc.start_save(opened_slot)[0]
+
 	# updates the name to that of the field
 	if line_edit.text == "":
 		player.name = "Player"
