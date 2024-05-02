@@ -1,0 +1,16 @@
+~ start
+
+if gameData.has_inventory_item("Bag"):
+	{{player_name}} went to school with their Go-Bag ready.[wait=1]
+		The teacher gave them a passing grade for their assignment 
+		and life moved on.
+else:
+	{{player_name}} went to school without their Go-Bag.[wait=1]
+		The teacher gave them a failing grade for their assignment
+		but still life moved on.
+
+[speed=0.1]4 months later...
+
+do CutsceneGlobal.change_to_hallway()
+
+=> END

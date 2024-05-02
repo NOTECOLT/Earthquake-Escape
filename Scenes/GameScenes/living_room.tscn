@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=65 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_644jy"]
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_itrds"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cbkhayy2otmi6" path="res://Art/Items/Living Room/LRoom_doorOut.png" id="11_kqkge"]
 [ext_resource type="Texture2D" uid="uid://dcv2i8uy0xod5" path="res://Art/Items/Living Room/LRoom_lamp.png" id="12_6nw5j"]
 [ext_resource type="Texture2D" uid="uid://co3xtudpx1evw" path="res://Art/Items/Living Room/highlight/LRoom_gobag_hl.png" id="13_qo05m"]
+[ext_resource type="Texture2D" uid="uid://buiv07c4n83ef" path="res://Art/Items/Living Room/highlight/LRoom_doorOut_hl.png" id="13_rkvl4"]
 [ext_resource type="Texture2D" uid="uid://ccf47vnvcjt66" path="res://Art/Items/Living Room/LRoom_gobag.png" id="14_5tn13"]
 [ext_resource type="Resource" uid="uid://bbowx02cninu4" path="res://Resources/Items/bag.tres" id="15_0d4w0"]
+[ext_resource type="Resource" uid="uid://x3ukiwx4pp0h" path="res://Dialogue/door_out.dialogue" id="15_jeqjn"]
 [ext_resource type="Texture2D" uid="uid://c603waopl1wi" path="res://Art/Items/Living Room/highlight/LRoom_ntbk_hl.png" id="16_l2ppa"]
 [ext_resource type="Texture2D" uid="uid://bo6snumegi223" path="res://Art/Items/Living Room/LRoom_ntbk.png" id="17_6r7jy"]
 [ext_resource type="Resource" uid="uid://dnqxdqngl0vsh" path="res://Dialogue/bag.dialogue" id="18_tc1iv"]
@@ -88,6 +90,28 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8udbc"]
 size = Vector2(480.279, 99.4158)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51npg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_rkvl4")
+}],
+"loop": true,
+"name": &"Highlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kqkge")
+}],
+"loop": true,
+"name": &"noHighlight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jko11"]
+size = Vector2(107.919, 431.999)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_06sm6"]
 animations = [{
@@ -263,7 +287,7 @@ scale = Vector2(0.587909, 0.524725)
 texture = ExtResource("7_m2wjo")
 
 [node name="LRoomDesk" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("popup")]
-position = Vector2(134.938, 371.063)
+position = Vector2(129.938, 371.063)
 scale = Vector2(0.516366, 0.549667)
 sprite_frames = SubResource("SpriteFrames_uypb5")
 animation = &"Highlight"
@@ -280,14 +304,27 @@ rotation = -0.324631
 shape = SubResource("RectangleShape2D_8udbc")
 
 [node name="LRoomChair" type="Sprite2D" parent="."]
-position = Vector2(196, 404)
+position = Vector2(192, 401)
 scale = Vector2(0.757576, 0.713265)
 texture = ExtResource("10_y1nbm")
 
-[node name="LRoomDoorOut" type="Sprite2D" parent="."]
+[node name="LRoomDoorOut" type="AnimatedSprite2D" parent="."]
 position = Vector2(286, 187.375)
 scale = Vector2(0.576271, 0.527185)
-texture = ExtResource("11_kqkge")
+sprite_frames = SubResource("SpriteFrames_51npg")
+animation = &"noHighlight"
+script = ExtResource("6_710gr")
+dialogue = ExtResource("15_jeqjn")
+changeScene = "res://Scenes/cutscene1.tscn"
+
+[node name="Area2D2" type="Area2D" parent="LRoomDoorOut"]
+position = Vector2(135.581, -443.538)
+scale = Vector2(0.844814, 1.00552)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LRoomDoorOut/Area2D2"]
+position = Vector2(-129.122, 431.908)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jko11")
 
 [node name="LRoomLamp" type="Sprite2D" parent="."]
 position = Vector2(164.75, 266.625)
@@ -546,6 +583,8 @@ slot = 8
 [connection signal="mouse_shape_exited" from="LRoomDoorBed/Area2D" to="LRoomDoorBed" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRoomDesk/Area2D" to="LRoomDesk" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRoomDesk/Area2D" to="LRoomDesk" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="mouse_shape_entered" from="LRoomDoorOut/Area2D2" to="LRoomDoorOut" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="LRoomDoorOut/Area2D2" to="LRoomDoorOut" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="LRbag/Area2D" to="LRbag" method="_on_area_2d_mouse_shape_exited"]
 [connection signal="mouse_shape_entered" from="LRnb/Area2D" to="LRnb" method="_on_area_2d_mouse_shape_entered"]

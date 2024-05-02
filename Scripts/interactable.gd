@@ -37,18 +37,18 @@ func _process(_delta):
 		if highlighted:
 			self.play("Highlight")
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				item_interact(gameData)
+				item_interact()
 		else:
 			self.play("noHighlight")
 
-func item_interact(gd: GameDataManager):
+func item_interact():
 	if (dialogue != null):
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
 	match (interact):
 		ItemType.COLLECTABLE:
 			if (item != null):
 				print("Player clicked on " + item.name + ".")
-				gd.add_inventory_item(item)
+				gameData.add_inventory_item(item)
 				self.queue_free()
 			else:
 				print("Player clicked on null item.")
@@ -61,9 +61,14 @@ func item_interact(gd: GameDataManager):
 				if gameData.tick_flag(popup_flag):
 					DialogueManager.show_dialogue_balloon(popup_dialogue, "start")
 		ItemType.CHANGE_SCENE:
-			gameData.player.current_scene = changeScene
-			get_tree().change_scene_to_file(changeScene)
+			change_scene()
 	return
+
+func change_scene():
+	if changeScene == "": return
+	gameData.player.current_scene = changeScene
+	get_tree().change_scene_to_file(changeScene)	
+		
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):
 	highlighted = true

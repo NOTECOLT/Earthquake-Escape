@@ -1,0 +1,12 @@
+~ start
+
+{{player_name}}: Hmm, do I have everything I need?
+	((You cannot go back once you leave.))
+- Yes
+	{{player_name}}: Well, I guess I'm off to school now.
+	do CutsceneGlobal.change_to_cutscene1()
+	
+	=> END
+- No
+	{{player_name}}: I think I'm still missing some things.
+	=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://x3ukiwx4pp0h"
+path="res://.godot/imported/door_out.dialogue-7ce8b2f31ee3cc74092d7dc48880a406.tres"
+
+[deps]
+
+source_file="res://Dialogue/door_out.dialogue"
+dest_files=["res://.godot/imported/door_out.dialogue-7ce8b2f31ee3cc74092d7dc48880a406.tres"]
+
+[params]
+
+defaults=true
