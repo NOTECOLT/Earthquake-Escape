@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://145ko2db68ed"
+path="res://.godot/imported/flashlight.dialogue-18fe32bb9a9146810b7f26ba3a679ce9.tres"
+
+[deps]
+
+source_file="res://Dialogue/flashlight.dialogue"
+dest_files=["res://.godot/imported/flashlight.dialogue-18fe32bb9a9146810b7f26ba3a679ce9.tres"]
+
+[params]
+
+defaults=true

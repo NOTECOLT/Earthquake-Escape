@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c6t8xneg7nxcm"
+path="res://.godot/imported/piggy_bank.dialogue-16306cf4314072e8b43ead6f703f5789.tres"
+
+[deps]
+
+source_file="res://Dialogue/piggy_bank.dialogue"
+dest_files=["res://.godot/imported/piggy_bank.dialogue-16306cf4314072e8b43ead6f703f5789.tres"]
+
+[params]
+
+defaults=true

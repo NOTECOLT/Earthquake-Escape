@@ -11,11 +11,16 @@ var highlighted = false
 @export var interact: ItemType = ItemType.NONE
 @onready var gameData = get_node("/root/GameData")
 @export var dialogue: DialogueResource
+@export var popup_flag: String
+@export var popup_dialogue: DialogueResource
 @export var popup: Node
 @export var changeScene: String
 
+var player_name: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_name = gameData.player.name
 	if (item != null):
 		for i in gameData.player.inventory:
 			if item == i:
@@ -44,7 +49,6 @@ func item_interact(gd: GameDataManager):
 			if (item != null):
 				print("Player clicked on " + item.name + ".")
 				gd.add_inventory_item(item)
-				#gd.save_data()
 				self.queue_free()
 			else:
 				print("Player clicked on null item.")
@@ -52,6 +56,10 @@ func item_interact(gd: GameDataManager):
 			if (popup != null):
 				gameData.disable_interactions = true
 				popup.visible = !popup.visible
+			
+			if popup_flag != "" and popup_dialogue != null:
+				if gameData.tick_flag(popup_flag):
+					DialogueManager.show_dialogue_balloon(popup_dialogue, "start")
 		ItemType.CHANGE_SCENE:
 			gameData.player.current_scene = changeScene
 			get_tree().change_scene_to_file(changeScene)

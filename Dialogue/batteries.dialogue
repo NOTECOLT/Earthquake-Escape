@@ -1,0 +1,12 @@
+~ start
+
+if gameData.has_inventory_item("Radio"):
+	{{player_name}}: I guess I can use my batteries to turn my radio on.
+	.... 
+	*click* 
+		The radio turned on.
+	{{player_name}}: It works!
+else:
+	{{player_name}}: Now what would I use these batteries for?
+
+=> END

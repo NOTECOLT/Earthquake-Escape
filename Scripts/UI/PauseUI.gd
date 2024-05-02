@@ -24,6 +24,7 @@ func _on_pause_cont_but_pressed():
 
 func _on_pause_exit_but_pressed():
 	gameData.unpause_game()
+	gameData.clear_data()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 

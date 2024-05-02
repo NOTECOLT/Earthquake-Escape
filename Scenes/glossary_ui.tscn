@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnfa2v167owk6"]
 
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Art/UI/BACKGROUND.png" id="1_2i8nw"]
-[ext_resource type="Script" path="res://Scripts/glossary_ui.gd" id="1_w8kfj"]
+[ext_resource type="Script" path="res://Scripts/UI/glossary_ui.gd" id="1_w8kfj"]
 
 [node name="GlossaryUI" type="Control"]
 layout_mode = 3

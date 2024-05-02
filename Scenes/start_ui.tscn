@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm3ah53bofacd"]
 
-[ext_resource type="Script" path="res://Scripts/start_ui.gd" id="1_fclaj"]
+[ext_resource type="Script" path="res://Scripts/UI/start_ui.gd" id="1_fclaj"]
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Art/UI/BACKGROUND.png" id="1_oubs1"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="3_t0rgd"]
 [ext_resource type="FontFile" uid="uid://46l121pcrkpu" path="res://Fonts/Farro-Medium.otf" id="4_x6d08"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cdwjme4jf40p4"
+path="res://.godot/imported/whistle.dialogue-9aada069aa8d88b42ab858f79f4b4972.tres"
+
+[deps]
+
+source_file="res://Dialogue/whistle.dialogue"
+dest_files=["res://.godot/imported/whistle.dialogue-9aada069aa8d88b42ab858f79f4b4972.tres"]
+
+[params]
+
+defaults=true

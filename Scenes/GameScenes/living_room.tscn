@@ -1,8 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://cn1mm47emi41f"]
+[gd_scene load_steps=61 format=3 uid="uid://cn1mm47emi41f"]
 
 [ext_resource type="Texture2D" uid="uid://bhi261wfntbif" path="res://Art/BG/LRoom_bg.png" id="1_644jy"]
-[ext_resource type="Script" path="res://Scripts/living_room.gd" id="1_itrds"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_itrds"]
 [ext_resource type="Texture2D" uid="uid://00gvu2dl25my" path="res://Art/Items/Living Room/LRoom_tvTable.png" id="2_0odye"]
+[ext_resource type="Resource" uid="uid://2f8dxqioi5e2" path="res://Dialogue/Rooms/living_room.dialogue" id="2_jgx22"]
 [ext_resource type="Texture2D" uid="uid://e44h4id47ul2" path="res://Art/Items/Living Room/LRoom_tv.png" id="3_q0ow0"]
 [ext_resource type="Texture2D" uid="uid://krfpd6r52aur" path="res://Art/Items/Living Room/highlight/LRoom_doorBed_hl.png" id="4_jrvuq"]
 [ext_resource type="Texture2D" uid="uid://dxrxx5p74xdmq" path="res://Art/Items/Living Room/LRoom_doorBed.png" id="5_qq2q2"]
@@ -18,7 +19,7 @@
 [ext_resource type="Resource" uid="uid://bbowx02cninu4" path="res://Resources/Items/bag.tres" id="15_0d4w0"]
 [ext_resource type="Texture2D" uid="uid://c603waopl1wi" path="res://Art/Items/Living Room/highlight/LRoom_ntbk_hl.png" id="16_l2ppa"]
 [ext_resource type="Texture2D" uid="uid://bo6snumegi223" path="res://Art/Items/Living Room/LRoom_ntbk.png" id="17_6r7jy"]
-[ext_resource type="Resource" uid="uid://d105cy8slc03n" path="res://Resources/Items/notebook.tres" id="18_f378h"]
+[ext_resource type="Resource" uid="uid://dnqxdqngl0vsh" path="res://Dialogue/bag.dialogue" id="18_tc1iv"]
 [ext_resource type="Resource" uid="uid://bt3wya1m5uaoc" path="res://Dialogue/notebook.dialogue" id="19_uaxck"]
 [ext_resource type="Texture2D" uid="uid://c16p6qcrhx3of" path="res://Art/Items/Living Room/LRoom_shelf.png" id="20_0ua37"]
 [ext_resource type="Texture2D" uid="uid://d0m5slrxbsh4o" path="res://Art/Items/Living Room/highlight/LRoom_water_hl.png" id="21_r81h7"]
@@ -26,10 +27,12 @@
 [ext_resource type="Resource" uid="uid://4e0mups22271" path="res://Resources/Items/water.tres" id="23_mn47n"]
 [ext_resource type="Texture2D" uid="uid://blq4vnqvi4m86" path="res://Art/Items/Living Room/highlight/LRoom_radio_hl.png" id="24_jclob"]
 [ext_resource type="Texture2D" uid="uid://xs0c852jsn7o" path="res://Art/Items/Living Room/LRoom_radio.png" id="25_iwqdc"]
+[ext_resource type="Resource" uid="uid://c46kicprv07ro" path="res://Dialogue/water_bottle.dialogue" id="25_oh5ul"]
 [ext_resource type="Resource" uid="uid://bihm6yp2jcpf7" path="res://Resources/Items/radio.tres" id="26_i7xum"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="27_r63cd"]
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="29_54dhq"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_slot.gd" id="29_ecdlk"]
+[ext_resource type="Resource" uid="uid://b3tjt4jdc5chr" path="res://Dialogue/radio.dialogue" id="30_el3is"]
 [ext_resource type="Texture2D" uid="uid://dhjicsou5kkkn" path="res://Art/Items/Living Room/LRoom_drawer.png" id="30_qelo4"]
 [ext_resource type="Script" path="res://Scripts/popup_screen.gd" id="31_krm3h"]
 [ext_resource type="Texture2D" uid="uid://bh5qhfcyr8dxb" path="res://Art/Items/Living Room/highlight/LRoom_battery_hl.png" id="32_pq8oo"]
@@ -38,7 +41,9 @@
 [ext_resource type="Texture2D" uid="uid://hdwd62qp013q" path="res://Art/Items/Living Room/highlight/LRoom_whistle_hl.png" id="35_gjnx0"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="36_3exwm"]
 [ext_resource type="Texture2D" uid="uid://bq7pynfj7q23k" path="res://Art/Items/Living Room/LRoom_whistle.png" id="36_ep31m"]
+[ext_resource type="Resource" uid="uid://y1v0me5lbnvn" path="res://Dialogue/batteries.dialogue" id="36_mnlyd"]
 [ext_resource type="Resource" uid="uid://cy7v01u2a4cpo" path="res://Resources/Items/whistle.tres" id="37_41vhe"]
+[ext_resource type="Resource" uid="uid://cdwjme4jf40p4" path="res://Dialogue/whistle.dialogue" id="38_qd81f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5movu"]
 animations = [{
@@ -218,6 +223,8 @@ size = Vector2(410, 402)
 
 [node name="LivingRoom" type="Node2D"]
 script = ExtResource("1_itrds")
+flag_enter = "living_room_entered"
+on_enter_dialogue = ExtResource("2_jgx22")
 
 [node name="LRoomBg" type="Sprite2D" parent="."]
 position = Vector2(400.25, 299)
@@ -295,6 +302,7 @@ animation = &"noHighlight"
 script = ExtResource("6_710gr")
 item = ExtResource("15_0d4w0")
 interact = 1
+dialogue = ExtResource("18_tc1iv")
 
 [node name="Area2D" type="Area2D" parent="LRbag"]
 position = Vector2(-86, -447)
@@ -309,8 +317,6 @@ scale = Vector2(0.69677, 0.67736)
 sprite_frames = SubResource("SpriteFrames_ld7up")
 animation = &"noHighlight"
 script = ExtResource("6_710gr")
-item = ExtResource("18_f378h")
-interact = 1
 dialogue = ExtResource("19_uaxck")
 
 [node name="Area2D" type="Area2D" parent="LRnb"]
@@ -333,6 +339,7 @@ animation = &"Highlight"
 script = ExtResource("6_710gr")
 item = ExtResource("23_mn47n")
 interact = 1
+dialogue = ExtResource("25_oh5ul")
 
 [node name="Area2D" type="Area2D" parent="LRwater"]
 position = Vector2(-86, -447)
@@ -349,6 +356,7 @@ animation = &"noHighlight"
 script = ExtResource("6_710gr")
 item = ExtResource("26_i7xum")
 interact = 1
+dialogue = ExtResource("30_el3is")
 
 [node name="Area2D" type="Area2D" parent="LRradio"]
 position = Vector2(-86, -447)
@@ -380,6 +388,7 @@ script = ExtResource("6_710gr")
 item = ExtResource("34_8xajb")
 bypassDisableInteraction = true
 interact = 1
+dialogue = ExtResource("36_mnlyd")
 
 [node name="Area2D" type="Area2D" parent="Desk Pop-Up/Batteries"]
 position = Vector2(-86, -447)
@@ -396,6 +405,7 @@ script = ExtResource("6_710gr")
 item = ExtResource("37_41vhe")
 bypassDisableInteraction = true
 interact = 1
+dialogue = ExtResource("38_qd81f")
 
 [node name="Area2D" type="Area2D" parent="Desk Pop-Up/Whistle"]
 position = Vector2(-86, -447)

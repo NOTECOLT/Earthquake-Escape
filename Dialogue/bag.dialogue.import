@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dnqxdqngl0vsh"
+path="res://.godot/imported/bag.dialogue-f83fb73b2eb2a558e5917a629b8c67ac.tres"
+
+[deps]
+
+source_file="res://Dialogue/bag.dialogue"
+dest_files=["res://.godot/imported/bag.dialogue-f83fb73b2eb2a558e5917a629b8c67ac.tres"]
+
+[params]
+
+defaults=true

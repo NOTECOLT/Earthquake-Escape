@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://y1v0me5lbnvn"
+path="res://.godot/imported/batteries.dialogue-2185360af3674aaa157c60dc6f2a7a10.tres"
+
+[deps]
+
+source_file="res://Dialogue/batteries.dialogue"
+dest_files=["res://.godot/imported/batteries.dialogue-2185360af3674aaa157c60dc6f2a7a10.tres"]
+
+[params]
+
+defaults=true

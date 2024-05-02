@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cwkfkbxdlu534"
+path="res://.godot/imported/money.dialogue-382de27e2df44fff7fcaaa36741d96ec.tres"
+
+[deps]
+
+source_file="res://Dialogue/money.dialogue"
+dest_files=["res://.godot/imported/money.dialogue-382de27e2df44fff7fcaaa36741d96ec.tres"]
+
+[params]
+
+defaults=true

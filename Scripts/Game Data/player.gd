@@ -8,4 +8,5 @@ class_name Player
 @export var flags = {
 	"living_room_entered": false,
 	"bedroom_entered": false,
+	"open_piggy_bank": false,
 }

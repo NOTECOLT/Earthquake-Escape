@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c23tw1a6lc7lj" path="res://Art/UI/TITLE.png" id="1_qhwcf"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="2_323uy"]
-[ext_resource type="Script" path="res://Scripts/PauseUI.gd" id="2_sn6id"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseUI.gd" id="2_sn6id"]
 [ext_resource type="FontFile" uid="uid://bhivsmjg0y6jw" path="res://Fonts/Farro-Regular.otf" id="4_xqxbc"]
 [ext_resource type="Script" path="res://Scripts/game_saved_text.gd" id="5_wgjmq"]
 

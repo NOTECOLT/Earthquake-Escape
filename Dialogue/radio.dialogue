@@ -1,0 +1,14 @@
+~ start
+
+{{player_name}}: Hmmm... I do remember the teacher saying a battery-operated radio would be good in a disaster.
+
+if gameData.has_inventory_item("Batteries"):
+	{{player_name}}: I guess I can use my batteries to turn this on.
+	.... 
+	*click* 
+		The radio turned on.
+	{{player_name}}: It works!
+else:
+	{{player_name}}: But wait, this radio doesn't have any batteries.
+
+=> END

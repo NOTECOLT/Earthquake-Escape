@@ -11,12 +11,20 @@ var sdc = SaveDataController.new()
 
 func _init():
 	player = Player.new()
-	player.name = ""
+	
+func clear_data():
+	player = Player.new()
 
 func add_inventory_item(item: Item):
 	player.inventory.append(item)
 	print("Added item " + item.name + " to inventory.")
 	return
+	
+func has_inventory_item(item_name: String):
+	for i in player.inventory:
+		if i.name == item_name:
+			return true
+	return false
 
 func tick_flag(flag_name: String):
 	if (!player.flags.has(flag_name)):
