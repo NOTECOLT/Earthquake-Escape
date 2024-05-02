@@ -4,15 +4,15 @@ extends "res://addons/gut/test.gd"
 # Player clicks on a collectable item
 # > Item gets added to inventory. Item disappears from main scene.
 func test_uc6_s1():
-	var gameData: GameDataManager = GameDataManager.new()
+	var gd: GameDataManager = GameDataManager.new()
 	var interactable: Interactable = Interactable.new()
-	interactable.item = load("res://Resources/Items/notebook.tres")
 	interactable.interact = Interactable.ItemType.COLLECTABLE
+	interactable.item = load("res://Resources/Items/bag.tres")
 	
-	interactable.item_interact(gameData)
+	interactable.item_interact(gd)
 	
-	assert_eq(gameData.player.inventory[0], interactable.item, "Interacting with an item should add it to the inventory")
-	gameData.free()
+	assert_eq(gd.player.inventory[0], interactable.item, "Interacting with an item should add it to the inventory")
+	gd.free()
 	interactable.free()
 
 # UC6-S2

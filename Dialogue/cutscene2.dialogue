@@ -1,0 +1,14 @@
+~ start
+
+As {{player_name}} walked through their classroom door, 
+	the ground below them started to rumble as sirens went off and classmates panicked.
+This was the moment everyone was dreading.
+With quick reflexes, {{player_name}} dashed for the nearest desk and ducked under it until imminent danger was gone.
+Now, {{player_name}} must escape the confines of their school safely before anything more happens.
+
+if gameData.has_inventory_item("Bag"):
+	Luckily, they had their trusty Go-Bag.
+
+do CutsceneGlobal.change_to_minigame()
+
+=> END

@@ -37,28 +37,28 @@ func _process(_delta):
 		if highlighted:
 			self.play("Highlight")
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				item_interact()
+				item_interact(gameData)
 		else:
 			self.play("noHighlight")
 
-func item_interact():
+func item_interact(gd: GameDataManager):
 	if (dialogue != null):
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
 	match (interact):
 		ItemType.COLLECTABLE:
 			if (item != null):
 				print("Player clicked on " + item.name + ".")
-				gameData.add_inventory_item(item)
+				gd.add_inventory_item(item)
 				self.queue_free()
 			else:
 				print("Player clicked on null item.")
 		ItemType.UI:
 			if (popup != null):
-				gameData.disable_interactions = true
+				gd.disable_interactions = true
 				popup.visible = !popup.visible
 			
 			if popup_flag != "" and popup_dialogue != null:
-				if gameData.tick_flag(popup_flag):
+				if gd.tick_flag(popup_flag):
 					DialogueManager.show_dialogue_balloon(popup_dialogue, "start")
 		ItemType.CHANGE_SCENE:
 			change_scene()

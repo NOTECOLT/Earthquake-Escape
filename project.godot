@@ -40,7 +40,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/notebook.dialogue", "res://Dialogue/Rooms/living_room.dialogue", "res://Dialogue/water_bottle.dialogue", "res://Dialogue/bag.dialogue", "res://Dialogue/whistle.dialogue", "res://Dialogue/radio.dialogue", "res://Dialogue/batteries.dialogue", "res://Dialogue/Rooms/bedroom.dialogue", "res://Dialogue/flashlight.dialogue", "res://Dialogue/piggy_bank.dialogue", "res://Dialogue/money.dialogue", "res://Dialogue/door_out.dialogue", "res://Dialogue/cutscene1.dialogue", "res://Dialogue/Rooms/hallway.dialogue", "res://Dialogue/map.dialogue", "res://Dialogue/locker.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/notebook.dialogue", "res://Dialogue/Rooms/living_room.dialogue", "res://Dialogue/water_bottle.dialogue", "res://Dialogue/bag.dialogue", "res://Dialogue/whistle.dialogue", "res://Dialogue/radio.dialogue", "res://Dialogue/batteries.dialogue", "res://Dialogue/Rooms/bedroom.dialogue", "res://Dialogue/flashlight.dialogue", "res://Dialogue/piggy_bank.dialogue", "res://Dialogue/money.dialogue", "res://Dialogue/door_out.dialogue", "res://Dialogue/cutscene1.dialogue", "res://Dialogue/Rooms/hallway.dialogue", "res://Dialogue/map.dialogue", "res://Dialogue/locker.dialogue", "res://Dialogue/cutscene2.dialogue", "res://Dialogue/door_hallway.dialogue")
 
 [rendering]
 

@@ -1,0 +1,10 @@
+~ start
+
+{{player_name}}: Hmm, should I enter the classroom?
+- Yes
+	do CutsceneGlobal.change_to_cutscene2()
+	
+	=> END
+- No 
+	{{player_name}}: I think I'll stay out here for a bit.
+	=> END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://6p2j2ktfa4mu"]
+[gd_scene load_steps=32 format=3 uid="uid://6p2j2ktfa4mu"]
 
 [ext_resource type="Script" path="res://Scripts/room.gd" id="1_wwxid"]
 [ext_resource type="Texture2D" uid="uid://dxh3xfhrp1le8" path="res://Art/UI/Inventory/inventory.png" id="1_x25xb"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cfj03hq3b3fog" path="res://Art/Items/Hallway/popup-locker/Hall_lockerbig.png" id="10_kbax3"]
 [ext_resource type="Texture2D" uid="uid://66akbid7hbjj" path="res://Art/Items/Hallway/popup-locker/Hall_gobag_hl.png" id="12_orrx4"]
 [ext_resource type="Texture2D" uid="uid://dyiapq8y4qf3l" path="res://Art/Items/Hallway/popup-locker/Hall_gobag.png" id="13_1lncu"]
+[ext_resource type="Resource" uid="uid://he6vcy8ub751" path="res://Dialogue/door_hallway.dialogue" id="13_4fui5"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="16_r0ccs"]
 [ext_resource type="Texture2D" uid="uid://bk86ygmsqu452" path="res://Art/Items/Hallway/popup-map/Hall_mapBig.png" id="17_5chup"]
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="17_bwu0x"]
@@ -161,10 +162,9 @@ shape = SubResource("RectangleShape2D_cd62t")
 position = Vector2(670, 176)
 scale = Vector2(0.42224, 0.444024)
 sprite_frames = SubResource("SpriteFrames_lwssj")
-animation = &"Highlight"
+animation = &"noHighlight"
 script = ExtResource("7_gitiu")
-interact = 3
-changeScene = "res://Scenes/GameScenes/living_room.tscn"
+dialogue = ExtResource("13_4fui5")
 
 [node name="Area2D" type="Area2D" parent="HWdoor"]
 position = Vector2(7.27286, 38.4868)

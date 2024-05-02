@@ -1,5 +1,11 @@
 extends Node
 
+class_name main_minigame
+
+@onready var gameData = get_node("/root/GameData")
+
+static var game_over: bool = false
+
 #preload obstacles
 var obs_plant = preload("res://Scenes/Minigame/obs_plant.tscn")
 var obs_pipes = preload("res://Scenes/Minigame/obs_pipes.tscn")
@@ -38,6 +44,7 @@ func _ready():
 	new_game()
 
 func new_game():
+	game_over = false
 	#reset variables
 	score = 0
 	#show_score()
@@ -62,6 +69,7 @@ func new_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if gameData.game_paused: return
 	if game_running:
 		#speed up and adjust difficulty
 		speed = START_SPEED
@@ -126,9 +134,13 @@ func remove_obs(obs):
 func hit_obs(body):
 	if body.name == "Dino":
 		print("game over")
+		invoke_hit()
 		#get_tree().paused = true
 		#game_over()
 
+# for the test case
+static func invoke_hit():
+	game_over = true
 
 #func game_over():
 	#check_high_score()
