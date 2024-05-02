@@ -126,7 +126,7 @@ func remove_obs(obs):
 func hit_obs(body):
 	if body.name == "Dino":
 		print("game over")
-		get_tree().paused = true
+		#get_tree().paused = true
 		#game_over()
 
 
