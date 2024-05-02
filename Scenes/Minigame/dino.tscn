@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://d2qmpdpq203mp"]
 
 [ext_resource type="Texture2D" uid="uid://bkl4ebh1m74t1" path="res://Art/Minigame/BG/DinoSprites - vita.png" id="1_dtfq0"]
-[ext_resource type="Script" path="res://Scenes/Minigame/dino.gd" id="1_nfnwi"]
+[ext_resource type="Script" path="res://Scripts/Minigame/dino.gd" id="1_nfnwi"]
 [ext_resource type="Texture2D" uid="uid://b3hshjikvh80t" path="res://Art/Minigame/sprite_crawl.png" id="2_xtkdc"]
 [ext_resource type="Texture2D" uid="uid://ji43lnliod2t" path="res://Art/Minigame/sprite_jump.png" id="4_4hukj"]
 [ext_resource type="Texture2D" uid="uid://buoi5au1jmuus" path="res://Art/Minigame/sprite_run.png" id="5_yr3q6"]

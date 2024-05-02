@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci4tsvx3otg3w"
-path="res://.godot/imported/Hall_map.png-dae14e650eadf3de83c477bdf1fad5d2.ctex"
+uid="uid://cfj03hq3b3fog"
+path="res://.godot/imported/Hall_lockerbig.png-cde40f7ec3e47a51d425cb23e4bcf1c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_map.png"
-dest_files=["res://.godot/imported/Hall_map.png-dae14e650eadf3de83c477bdf1fad5d2.ctex"]
+source_file="res://Art/Items/Hallway/popup-locker/Hall_lockerbig.png"
+dest_files=["res://.godot/imported/Hall_lockerbig.png-cde40f7ec3e47a51d425cb23e4bcf1c1.ctex"]
 
 [params]
 

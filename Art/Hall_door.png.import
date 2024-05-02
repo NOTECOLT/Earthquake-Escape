@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnuunmt0c5nsa"
-path="res://.godot/imported/Hall_door.png-fa81c0af7175d76e1503fdd52e9b615e.ctex"
+path="res://.godot/imported/Hall_door.png-44aa4d92172d74dbfdc6970a6c91b7b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Hallway-20240416T015304Z-001/Hallway/Hall_door.png"
-dest_files=["res://.godot/imported/Hall_door.png-fa81c0af7175d76e1503fdd52e9b615e.ctex"]
+source_file="res://Art/Hall_door.png"
+dest_files=["res://.godot/imported/Hall_door.png-44aa4d92172d74dbfdc6970a6c91b7b7.ctex"]
 
 [params]
 
