@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GlossarySlide" load_steps=2 format=3 uid="uid://n0njht6crpcq"]
+
+[ext_resource type="Script" path="res://Scripts/glossary_slide.gd" id="1_bjst2"]
+
+[resource]
+script = ExtResource("1_bjst2")
+title = "Before an Earthquake"
+body = "It is important to always prepare yourself and those around you in case of natural disaster strikes. Doing so may help reduce loss and even save a life in dire times. One way to do so is to identifying safe locations and develop/familiarize evacuation routes in the home, school, or office.
+
+You can also prepare by keeping in mind the the nearest active fault to your home or school by going to the following site:
+https://howsafeismyhouse.phivolcs.dost.gov.ph/
+
+Visiting this site will help you assess the vulnerability of your home to earthquake hazards such as ground shaking, landslide, liquefaction, and tsunami."
+source = "Earthquakes. (n.d.). Habitat for Humanity. https://www.habitat.org/our-work/disaster-response/disaster-preparedness-homeowners/earthquakes"

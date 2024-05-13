@@ -1,33 +1,130 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnfa2v167owk6"]
+[gd_scene load_steps=9 format=3 uid="uid://dnfa2v167owk6"]
 
 [ext_resource type="Texture2D" uid="uid://dtkydo6kjedlt" path="res://Art/UI/BACKGROUND.png" id="1_2i8nw"]
 [ext_resource type="Script" path="res://Scripts/UI/glossary_ui.gd" id="1_w8kfj"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="3_pxgrg"]
+[ext_resource type="Theme" uid="uid://biecx1s4qgwjo" path="res://Themes/Blank Theme.tres" id="4_5sjsx"]
+[ext_resource type="Script" path="res://Scripts/glossary_slide_button.gd" id="5_q3nre"]
+[ext_resource type="Resource" uid="uid://bhe0enhn1e630" path="res://Resources/GlossarySlides/emergency_kit.tres" id="6_ms5ox"]
+[ext_resource type="Resource" uid="uid://dqscsl3yolupf" path="res://Resources/GlossarySlides/hazards.tres" id="7_rm3xw"]
+[ext_resource type="Resource" uid="uid://n0njht6crpcq" path="res://Resources/GlossarySlides/preparations.tres" id="8_2yxh3"]
 
-[node name="GlossaryUI" type="Control"]
+[node name="GlossaryUI" type="Control" node_paths=PackedStringArray("title", "source", "body")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 600.0
 script = ExtResource("1_w8kfj")
+start_slide = ExtResource("6_ms5ox")
+title = NodePath("Main Body/Title")
+source = NodePath("Main Body/Source")
+body = NodePath("Main Body/Body")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(400, 300)
 texture = ExtResource("1_2i8nw")
 
 [node name="Button" type="Button" parent="Background"]
-offset_left = -109.0
-offset_top = 7.0
-offset_right = 127.0
-offset_bottom = 44.0
-text = "Main Menu"
+offset_left = -380.0
+offset_top = 207.0
+offset_right = -60.0
+offset_bottom = 335.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_pxgrg")
+text = "MAIN MENU"
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 17.0
+offset_top = 24.0
+offset_right = 185.0
+offset_bottom = 488.0
+theme = ExtResource("3_pxgrg")
+
+[node name="emergencykit" type="Button" parent="Panel2" node_paths=PackedStringArray("title", "source", "body")]
 layout_mode = 0
-offset_left = 336.0
-offset_top = 234.0
-offset_right = 491.0
-offset_bottom = 276.0
-text = "THIS IS GLOSSARY
-"
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 152.0
+offset_bottom = 84.0
+theme = ExtResource("4_5sjsx")
+theme_override_font_sizes/font_size = 16
+text = "Emergency Kit"
+script = ExtResource("5_q3nre")
+slide = ExtResource("6_ms5ox")
+title = NodePath("../../Main Body/Title")
+source = NodePath("../../Main Body/Source")
+body = NodePath("../../Main Body/Body")
+
+[node name="hazards" type="Button" parent="Panel2" node_paths=PackedStringArray("title", "source", "body")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 92.0
+offset_right = 152.0
+offset_bottom = 136.0
+theme = ExtResource("4_5sjsx")
+theme_override_font_sizes/font_size = 16
+text = "Hazards"
+script = ExtResource("5_q3nre")
+slide = ExtResource("7_rm3xw")
+title = NodePath("../../Main Body/Title")
+source = NodePath("../../Main Body/Source")
+body = NodePath("../../Main Body/Body")
+
+[node name="preparations" type="Button" parent="Panel2" node_paths=PackedStringArray("title", "source", "body")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 152.0
+offset_bottom = 188.0
+theme = ExtResource("4_5sjsx")
+theme_override_font_sizes/font_size = 16
+text = "Preparations"
+script = ExtResource("5_q3nre")
+slide = ExtResource("8_2yxh3")
+title = NodePath("../../Main Body/Title")
+source = NodePath("../../Main Body/Source")
+body = NodePath("../../Main Body/Body")
+
+[node name="Main Body" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 24.0
+offset_right = 785.0
+offset_bottom = 576.0
+theme = ExtResource("3_pxgrg")
+
+[node name="Title" type="Label" parent="Main Body"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 24.0
+offset_right = 182.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Title"
+
+[node name="Source" type="Label" parent="Main Body"]
+offset_left = 31.0
+offset_top = 496.0
+offset_right = 559.0
+offset_bottom = 532.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Source: qijeqowjieqwe"
+autowrap_mode = 3
+
+[node name="Body" type="Label" parent="Main Body"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 559.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+autowrap_mode = 3
 
 [connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel2/emergencykit" to="Panel2/emergencykit" method="load_slide"]
+[connection signal="pressed" from="Panel2/hazards" to="Panel2/hazards" method="load_slide"]
+[connection signal="pressed" from="Panel2/preparations" to="Panel2/preparations" method="load_slide"]
