@@ -14,6 +14,7 @@ var obs_wires = preload("res://Scenes/Minigame/obs_wires.tscn")
 var obs_wood = preload("res://Scenes/Minigame/obs_wood.tscn")
 var obs_trashG = preload("res://Scenes/Minigame/obs_trash_g.tscn")
 var obs_trashY = preload("res://Scenes/Minigame/obs_trash_y.tscn")
+
 var down_obs := [obs_trashY, obs_trashG, obs_plant, obs_rubbles]
 var up_obs := [obs_pipes, obs_wires, obs_wood]
 var obstacles : Array
@@ -63,9 +64,19 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$Floor.position = Vector2i(0, 500)
 	
+	
 	#reset hud and game over screen
 	#$HUD.get_node("StartLabel").show()
 	#$GameOver.hide()
+
+func end_run():
+	print("arrived at end")
+	get_tree().paused = true
+
+func Game_over():
+	print("game over")
+	invoke_hit()
+	get_tree().paused = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -73,6 +84,8 @@ func _process(delta):
 	if game_running:
 		#speed up and adjust difficulty
 		speed = START_SPEED
+		
+		var end_goal = 10000
 
 		
 		#generate obstacles
@@ -82,6 +95,10 @@ func _process(delta):
 		$Dino.position.x += speed
 		$Camera2D.position.x += speed
 		
+		if $Dino.position.x == end_goal:
+			end_run()
+			
+			
 		
 		#update ground position
 		if $Camera2D.position.x - $Floor.position.x > screen_size.x * 1.5:
@@ -95,6 +112,7 @@ func _process(delta):
 		if Input.is_action_pressed("ui_accept"):
 			game_running = true
 
+var backgrounds = 1
 func generate_obs():
 	#print(obstacles.is_empty(), last_obs)
 	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
@@ -118,8 +136,21 @@ func generate_obs():
 				obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
 			#print(obs_x, obs_y)
+			extend_bg()
 			add_obs(obs, obs_x, obs_y)
 
+func extend_bg():
+	var BG = preload("res://Scenes/Minigame/BG_sprite.tscn")
+	var x = 1920 + 1920*backgrounds
+	var y = 0
+	if $Camera2D.position.x + 800 > 1920*backgrounds:
+		backgrounds += 1
+		var bg = BG.instantiate()
+		#bg.position = Vector2i(x, y)
+		bg.position = Vector2i(x, y)
+		add_child(bg)
+		print("called")
+	
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
@@ -133,17 +164,10 @@ func remove_obs(obs):
 	
 func hit_obs(body):
 	if body.name == "Dino":
-		print("game over")
-		invoke_hit()
-		#get_tree().paused = true
-		#game_over()
+		Game_over()
 
 # for the test case
 static func invoke_hit():
 	game_over = true
+	
 
-#func game_over():
-	#check_high_score()
-	#get_tree().paused = true
-	#game_running = false
-	#$GameOver.show()

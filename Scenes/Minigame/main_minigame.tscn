@@ -14,11 +14,11 @@ script = ExtResource("1_trhyu")
 follow_viewport_enabled = true
 
 [node name="Floor" parent="." instance=ExtResource("2_vt5ij")]
-position = Vector2(2, 556)
+position = Vector2(2, 468)
 
 [node name="Dino" parent="." instance=ExtResource("3_c0gts")]
 position = Vector2(120, 464)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

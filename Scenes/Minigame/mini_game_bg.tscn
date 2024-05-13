@@ -5,11 +5,13 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="BGwall" type="ParallaxLayer" parent="."]
+texture_repeat = 3
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(2495, 0)
+motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="BGwall"]
+[node name="BGsprite" type="Sprite2D" parent="BGwall"]
+texture_repeat = 3
 position = Vector2(4, 3)
-scale = Vector2(0.779375, 0.600653)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_lskkt")
 centered = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxgyqxdmisdgx"]
+
+[ext_resource type="Texture2D" uid="uid://cqr3qwgq6mkpp" path="res://Art/Minigame/BG/minigame_BGhalf.png" id="1_1pnen"]
+
+[node name="BG_sprite" type="Node2D"]
+z_index = -1
+
+[node name="BGsprite" type="Sprite2D" parent="."]
+texture_repeat = 3
+position = Vector2(4, 3)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_1pnen")
+centered = false

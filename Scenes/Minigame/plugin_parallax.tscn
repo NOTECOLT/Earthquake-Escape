@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://j3664mclqlkp"]
+
+[ext_resource type="Script" path="res://addons/nklbdev.parallax/Parallax.gd" id="1_q5uh6"]
+[ext_resource type="Texture2D" uid="uid://hsmb12am3cgy" path="res://Art/Minigame/BG/minigame_wall.png" id="2_lb12c"]
+
+[node name="Parallax" type="Node2D"]
+script = ExtResource("1_q5uh6")
+enabled_in_editor = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lb12c")
+centered = false
