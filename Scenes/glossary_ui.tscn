@@ -34,6 +34,7 @@ theme = ExtResource("3_pxgrg")
 text = "MAIN MENU"
 
 [node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 24.0
 offset_right = 185.0
@@ -104,6 +105,7 @@ theme_override_font_sizes/font_size = 40
 text = "Title"
 
 [node name="Source" type="Label" parent="Main Body"]
+layout_mode = 0
 offset_left = 31.0
 offset_top = 496.0
 offset_right = 559.0
