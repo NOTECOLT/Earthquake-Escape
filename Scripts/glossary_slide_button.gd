@@ -1,6 +1,7 @@
-extends Control
+extends Button
 
-@export var start_slide: GlossarySlide
+
+@export var slide: GlossarySlide
 
 @export var title: Label
 @export var source: Label
@@ -8,16 +9,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	title.text = start_slide.title
-	source.text = start_slide.source
-	body.text = start_slide.body
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	pass
-
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	
+func load_slide():
+	title.text = slide.title
+	source.text = slide.source
+	body.text = slide.body

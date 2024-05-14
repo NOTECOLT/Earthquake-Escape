@@ -9,4 +9,5 @@
 	=> END
 - No
 	{{player_name}}: I think I'm still missing some things.
+	do CutsceneGlobal.said_no()
 	=> END

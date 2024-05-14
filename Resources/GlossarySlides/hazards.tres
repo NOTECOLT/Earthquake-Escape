@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GlossarySlide" load_steps=2 format=3 uid="uid://dqscsl3yolupf"]
+
+[ext_resource type="Script" path="res://Scripts/glossary_slide.gd" id="1_u8fvl"]
+
+[resource]
+script = ExtResource("1_u8fvl")
+title = "Earthquake Hazards"
+body = "There are a number of different hazards that may occur as caused by an earthquake. These include but are not limited to:
+
+- Ground Rupture - A deformation on the ground that marks the intersection of the fault with the earth’s surface.
+
+- Ground Shaking - Disruptive vibrations of the ground.
+
+- Liquefaction - Where sediments behave like liquid, like quicksand. These are more common in sediments near water and may cause structures to sink or tilt above it
+
+- Landslide - A down slope movement of rocks, soil and other debris from above
+
+- Tsunami - A series of waves caused by an earthquake under th sea. "
+source = "Earthquake Hazards. (2016). PHIVOLCS. https://drive.google.com/file/d/0B8_KPQhbpktXRzdCZlJKbEd5OUE/view?resourcekey=0-Zm5M6vSjWqkvX3d7pMMZJQ"

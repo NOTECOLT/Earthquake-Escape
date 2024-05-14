@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GlossarySlide" load_steps=2 format=3 uid="uid://bhe0enhn1e630"]
+
+[ext_resource type="Script" path="res://Scripts/glossary_slide.gd" id="1_s2n7n"]
+
+[resource]
+script = ExtResource("1_s2n7n")
+title = "Emergency Kits"
+body = "Emergency Kits, or Go-Bags, are bags with important tools and utilities to be used in case of emergencies, such as natural disasters.
+
+They may contain the following:
+- First Aid Kit
+- Food
+- Bottled Water
+- Flashlight
+- Battery-powered Radio
+- Cash
+- Whistle
+- Knife
+- Candles, Matches, Lighter"
+source = "How to Prepare Your FAMILY for Earthquake? (2016). PHIVOLCS. https://drive.google.com/file/d/0B8_KPQhbpktXUUZodUd1SFFBWkU/view?resourcekey=0-NPrFrUdGFznwbzJb_ZOprQ"
