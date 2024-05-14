@@ -1,5 +1,6 @@
 extends Node
 
+
 @onready var gameData = get_node("/root/GameData")
 
 static var game_over: bool = false
@@ -21,14 +22,17 @@ var obstacles : Array
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 10.0
+const START_SPEED : float = 6.0
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
 var last_obs
 
+var player_name: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_name = gameData.player.name
 	screen_size = get_window().size
 	#print(screen_size, ground_height)
 	ground_height = $Floor.get_node("Sprite2D").texture.get_height()
@@ -75,7 +79,7 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		
-		var end_goal = 7000
+		var end_goal = 3000
 
 		
 		#generate obstacles
@@ -84,10 +88,11 @@ func _process(delta):
 		#move dino and camera
 		$Dino.position.x += speed
 		$Camera2D.position.x += speed
+		$Minigame_overlay.position.x += speed
 		
 		if $Dino.position.x == end_goal:
-			print($Dino.position.x)
 			finish_run()
+			
 			
 		
 		#update ground position
@@ -105,7 +110,12 @@ var backgrounds = 1
 func generate_obs():
 	#print(obstacles.is_empty(), last_obs)
 	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
-		var obs_type = down_obs[randi() % down_obs.size()]
+		var is_up = randi_range(0, 1)
+		var obs_type
+		if is_up:
+			obs_type = up_obs[randi() % up_obs.size()]
+		else:
+			obs_type = down_obs[randi() % down_obs.size()]
 		var obs
 		var max_obs = 1
 		for i in range(randi() % max_obs + 1):
@@ -114,7 +124,10 @@ func generate_obs():
 			var obs_scale = obs.get_node("Sprite2D").scale
 			var obs_x : int = $Dino.position.x + screen_size.x + 100 + (i * 100)
 			var obs_y : int
-			obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
+			if is_up:
+				obs_y = (obs_height * obs_scale.y / 2) + 5
+			else:
+				obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
 			#print(obs_x, obs_y)
 			extend_bg()

@@ -27,8 +27,13 @@ var ground_height : int
 var game_running : bool
 var last_obs
 
+@export var level_end_dialogue: DialogueResource
+@export var die_dialogue: DialogueResource
+var player_name: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_name = gameData.player.name
 	screen_size = get_window().size
 	#print(screen_size, ground_height)
 	ground_height = $Floor.get_node("Sprite2D").texture.get_height()
@@ -59,8 +64,9 @@ func new_game():
 
 func finish_run():
 	print("arrived at end")
-	#get_tree().paused = true
 	game_running = false
+	DialogueManager.show_dialogue_balloon(level_end_dialogue, "start")
+	#get_tree().paused = true
 
 func Game_over():
 	print("game over")

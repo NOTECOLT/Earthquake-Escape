@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crtwaxb6lhp6l"]
 
 [ext_resource type="Script" path="res://Scripts/cutscene.gd" id="1_fwsm1"]
-[ext_resource type="Resource" uid="uid://bs81gypw0egyv" path="res://Dialogue/cutscene1.dialogue" id="2_7s65s"]
+[ext_resource type="Resource" uid="uid://bs81gypw0egyv" path="res://Dialogue/Cutscenes/cutscene1.dialogue" id="2_7s65s"]
 
 [node name="Cutscene1" type="Node2D"]
 script = ExtResource("1_fwsm1")

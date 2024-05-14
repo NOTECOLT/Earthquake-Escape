@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnm7pi31b2gws"]
+
+[ext_resource type="Script" path="res://Scripts/Minigame/level1.gd" id="1_mnnli"]
+[ext_resource type="Resource" uid="uid://cm0qffv5rlg7d" path="res://Dialogue/MinigameDecisions/level1_end.dialogue" id="2_juakd"]
+[ext_resource type="PackedScene" uid="uid://du2q2hkr7qo1j" path="res://Scenes/Minigame/mini_game_bg.tscn" id="2_wmxd4"]
+[ext_resource type="PackedScene" uid="uid://c536ocrlojr66" path="res://Scenes/Minigame/floor.tscn" id="3_mnn5w"]
+[ext_resource type="PackedScene" uid="uid://d2qmpdpq203mp" path="res://Scenes/Minigame/dino.tscn" id="4_21ysk"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="5_3730c"]
+[ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="6_mbffy"]
+
+[node name="FirstMini" type="Node"]
+script = ExtResource("1_mnnli")
+level_end_dialogue = ExtResource("2_juakd")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_wmxd4")]
+follow_viewport_enabled = true
+
+[node name="Floor" parent="." instance=ExtResource("3_mnn5w")]
+position = Vector2(2, 468)
+
+[node name="Dino" parent="." instance=ExtResource("4_21ysk")]
+position = Vector2(120, 464)
+scale = Vector2(0.4, 0.4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.232
+anchor_right = 0.155
+anchor_bottom = 0.805
+offset_left = -3.0
+offset_top = -125.2
+offset_right = 164.0
+offset_bottom = -331.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_3730c")
+text = "PAUSE"
+
+[node name="PauseUI" parent="CanvasLayer/Pause Button" instance=ExtResource("6_mbffy")]
+visible = false
+offset_left = 240.0
+offset_top = 966.0
+offset_right = 240.0
+offset_bottom = 966.0
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="CanvasLayer/Pause Button" to="CanvasLayer/Pause Button/PauseUI" method="_on_pause_button_pressed"]

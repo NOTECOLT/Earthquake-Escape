@@ -9,6 +9,8 @@ Now, {{player_name}} must escape the confines of their school safely before anyt
 if gameData.has_inventory_item("Bag"):
 	Luckily, they had their trusty Go-Bag.
 
-do CutsceneGlobal.change_to_minigame()
+((Reach the end of the level by avoiding obstacles!))
+	((Press SPACEBAR to jump and DOWN ARROW to crouch))
+do CutsceneGlobal.change_to_minigame_level1()
 
 => END

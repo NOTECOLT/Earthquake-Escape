@@ -1,8 +1,13 @@
 ~ start
 
+do CutsceneGlobal.start_dialogue()
+
 {{player_name}}: Woo! Good Morning! 
+	((Press LEFTMOUSE or SPACEBAR to advance text.))
 {{player_name}}: I should probably finish my assignment before I leave for school today.
 {{player_name}}: The teacher told us to prepare an Emergency Go-Bag in case of an Earthquake...
 {{player_name}}: What goes in a Go-Bag?
+
+do CutsceneGlobal.end_dialogue()
 
 => END
