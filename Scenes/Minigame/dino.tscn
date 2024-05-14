@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2qmpdpq203mp"]
+[gd_scene load_steps=27 format=3 uid="uid://d2qmpdpq203mp"]
 
 [ext_resource type="Texture2D" uid="uid://bkl4ebh1m74t1" path="res://Art/Minigame/BG/DinoSprites - vita.png" id="1_dtfq0"]
 [ext_resource type="Script" path="res://Scripts/Minigame/dino.gd" id="1_nfnwi"]
 [ext_resource type="Texture2D" uid="uid://b3hshjikvh80t" path="res://Art/Minigame/sprite_crawl.png" id="2_xtkdc"]
+[ext_resource type="Texture2D" uid="uid://dfsmhii3mfp1r" path="res://Art/Minigame/sprite_collide.png" id="3_6kv6o"]
 [ext_resource type="Texture2D" uid="uid://ji43lnliod2t" path="res://Art/Minigame/sprite_jump.png" id="4_4hukj"]
 [ext_resource type="Texture2D" uid="uid://buoi5au1jmuus" path="res://Art/Minigame/sprite_run.png" id="5_yr3q6"]
 
@@ -13,6 +14,22 @@ region = Rect2(0, 0, 542, 594)
 [sub_resource type="AtlasTexture" id="AtlasTexture_aid12"]
 atlas = ExtResource("2_xtkdc")
 region = Rect2(542, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm7nr"]
+atlas = ExtResource("3_6kv6o")
+region = Rect2(0, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0bba"]
+atlas = ExtResource("3_6kv6o")
+region = Rect2(542, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxqu0"]
+atlas = ExtResource("3_6kv6o")
+region = Rect2(1084, 0, 542, 594)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t5ur"]
+atlas = ExtResource("3_6kv6o")
+region = Rect2(1626, 0, 542, 594)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq0n8"]
 atlas = ExtResource("1_dtfq0")
@@ -70,6 +87,23 @@ animations = [{
 "loop": true,
 "name": &"duck",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0bba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxqu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t5ur")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -135,7 +169,7 @@ script = ExtResource("1_nfnwi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sacjq")
-animation = &"run"
+animation = &"hit"
 autoplay = "run"
 
 [node name="Run" type="CollisionShape2D" parent="."]

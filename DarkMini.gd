@@ -1,5 +1,6 @@
 extends Node
 
+
 @onready var gameData = get_node("/root/GameData")
 
 static var game_over: bool = false
@@ -21,7 +22,7 @@ var obstacles : Array
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 10.0
+const START_SPEED : float = 6.0
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -75,7 +76,7 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		
-		var end_goal = 10000
+		var end_goal = 3000
 
 		
 		#generate obstacles
@@ -84,6 +85,7 @@ func _process(delta):
 		#move dino and camera
 		$Dino.position.x += speed
 		$Camera2D.position.x += speed
+		$Minigame_overlay.position.x += speed
 		
 		if $Dino.position.x == end_goal:
 			finish_run()

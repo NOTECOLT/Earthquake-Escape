@@ -2,11 +2,18 @@ extends CharacterBody2D
 
 const GRAVITY : int = 2000
 const JUMP_SPEED : int = -900
+var collided = false
+
+func is_hit():
+	collided = true
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
-	if is_on_floor():
+	if collided:
+		$AnimatedSprite2D.play("hit")
+	elif is_on_floor():
 		$Run.disabled = false
 		if Input.is_action_pressed("ui_accept"):
 			velocity.y = JUMP_SPEED

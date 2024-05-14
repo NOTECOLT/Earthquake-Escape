@@ -75,7 +75,7 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		
-		var end_goal = 10000
+		var end_goal = 7000
 
 		
 		#generate obstacles
@@ -86,8 +86,8 @@ func _process(delta):
 		$Camera2D.position.x += speed
 		
 		if $Dino.position.x == end_goal:
+			print($Dino.position.x)
 			finish_run()
-			
 			
 		
 		#update ground position
@@ -105,12 +105,7 @@ var backgrounds = 1
 func generate_obs():
 	#print(obstacles.is_empty(), last_obs)
 	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
-		var is_up = randi_range(0, 1)
-		var obs_type
-		if is_up:
-			obs_type = up_obs[randi() % up_obs.size()]
-		else:
-			obs_type = down_obs[randi() % down_obs.size()]
+		var obs_type = down_obs[randi() % down_obs.size()]
 		var obs
 		var max_obs = 1
 		for i in range(randi() % max_obs + 1):
@@ -119,10 +114,7 @@ func generate_obs():
 			var obs_scale = obs.get_node("Sprite2D").scale
 			var obs_x : int = $Dino.position.x + screen_size.x + 100 + (i * 100)
 			var obs_y : int
-			if is_up:
-				obs_y = (obs_height * obs_scale.y / 2) + 5
-			else:
-				obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
+			obs_y = screen_size.y - (obs_height * obs_scale.y / 2) + 5
 			last_obs = obs
 			#print(obs_x, obs_y)
 			extend_bg()

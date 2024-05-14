@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://y0lvrytl2d2v"]
+
+[ext_resource type="Script" path="res://DarkMini.gd" id="1_85tst"]
+[ext_resource type="PackedScene" uid="uid://du2q2hkr7qo1j" path="res://Scenes/Minigame/mini_game_bg.tscn" id="2_stqa4"]
+[ext_resource type="PackedScene" uid="uid://c536ocrlojr66" path="res://Scenes/Minigame/floor.tscn" id="3_u0gt5"]
+[ext_resource type="PackedScene" uid="uid://d2qmpdpq203mp" path="res://Scenes/Minigame/dino.tscn" id="4_cdq8d"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="5_6m8vf"]
+[ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="6_jl1ca"]
+[ext_resource type="Texture2D" uid="uid://d03rt485s2qha" path="res://Art/Minigame/BG/minigame-overlay.png" id="7_rnj0a"]
+
+[node name="DarkMini" type="Node"]
+script = ExtResource("1_85tst")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_stqa4")]
+follow_viewport_enabled = true
+
+[node name="Floor" parent="." instance=ExtResource("3_u0gt5")]
+position = Vector2(2, 468)
+
+[node name="Dino" parent="." instance=ExtResource("4_cdq8d")]
+position = Vector2(120, 464)
+scale = Vector2(0.4, 0.4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.232
+anchor_right = 0.155
+anchor_bottom = 0.805
+offset_left = -3.0
+offset_top = -125.2
+offset_right = 164.0
+offset_bottom = -331.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_6m8vf")
+text = "PAUSE"
+
+[node name="PauseUI" parent="CanvasLayer/Pause Button" instance=ExtResource("6_jl1ca")]
+visible = false
+offset_left = 240.0
+offset_top = 966.0
+offset_right = 240.0
+offset_bottom = 966.0
+scale = Vector2(2, 2)
+
+[node name="Minigame_overlay" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(486, 345)
+texture = ExtResource("7_rnj0a")
+
+[connection signal="pressed" from="CanvasLayer/Pause Button" to="CanvasLayer/Pause Button/PauseUI" method="_on_pause_button_pressed"]
