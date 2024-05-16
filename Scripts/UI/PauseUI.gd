@@ -9,6 +9,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_released("escape"):
+		if !gameData.game_paused:
+			gameData.pause_game()
+			visible = true		
+		else:
+			gameData.unpause_game()
+			visible = false
 	pass
 
 
@@ -20,7 +27,6 @@ func _on_pause_save_but_pressed():
 func _on_pause_cont_but_pressed():
 	gameData.unpause_game()
 	visible = false
-
 
 func _on_pause_exit_but_pressed():
 	gameData.unpause_game()
