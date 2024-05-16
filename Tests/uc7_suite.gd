@@ -16,5 +16,5 @@ func test_uc7_s1():
 func test_uc7_s2():
 	var gd: GameDataManager = GameDataManager.new()
 	gd.reach_level_end()
-	assert_eq(gd.level_end, true, "unimplemented")
+	assert_eq(gd.level_end, true, "Level End should be true")
 	gd.free()

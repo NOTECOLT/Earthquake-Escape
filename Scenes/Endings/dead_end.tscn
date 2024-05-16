@@ -89,6 +89,7 @@ text = "MAIN MENU"
 
 [node name="Main Body" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 57.0
 offset_top = 24.0
 offset_right = 736.0

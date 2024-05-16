@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/win_slide.gd" id="1_l8ncu"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="3_34o4q"]
 
-[node name="Obstacle" type="Control"]
+[node name="GameWin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
