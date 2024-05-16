@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnm7pi31b2gws"]
 
 [ext_resource type="Script" path="res://Scripts/Minigame/level1.gd" id="1_mnnli"]
-[ext_resource type="Resource" uid="uid://cm0qffv5rlg7d" path="res://Dialogue/MinigameDecisions/level1_end.dialogue" id="2_juakd"]
+[ext_resource type="Resource" uid="uid://cm0qffv5rlg7d" path="res://Dialogue/Minigame/level1_end.dialogue" id="2_juakd"]
 [ext_resource type="PackedScene" uid="uid://du2q2hkr7qo1j" path="res://Scenes/Minigame/mini_game_bg.tscn" id="2_wmxd4"]
 [ext_resource type="PackedScene" uid="uid://c536ocrlojr66" path="res://Scenes/Minigame/floor.tscn" id="3_mnn5w"]
 [ext_resource type="PackedScene" uid="uid://d2qmpdpq203mp" path="res://Scenes/Minigame/dino.tscn" id="4_21ysk"]

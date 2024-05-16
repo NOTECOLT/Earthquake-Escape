@@ -33,6 +33,7 @@ var player_name: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	gameData.current_minigame_level = 2
 	player_name = gameData.player.name
 	screen_size = get_window().size
 	#print(screen_size, ground_height)
@@ -70,7 +71,9 @@ func finish_run():
 
 func Game_over():
 	print("game over")
-	invoke_hit()
+	gameData.get_hit()
+	var hit_dialogue = load('res://Dialogue/Minigame/hit.dialogue')
+	DialogueManager.show_dialogue_balloon(hit_dialogue, "start")
 	#get_tree().paused = true
 	game_running = false
 
@@ -161,9 +164,4 @@ func hit_obs(body):
 	if body.name == "Dino":
 		$Dino.is_hit()
 		Game_over()
-
-# for the test case
-static func invoke_hit():
-	game_over = true
-	
 

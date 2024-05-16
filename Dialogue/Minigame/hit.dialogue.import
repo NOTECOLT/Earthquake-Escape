@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bqmq3ogtcbuha"
+path="res://.godot/imported/hit.dialogue-c68710df18b04e4c05e26e664bcd49b8.tres"
+
+[deps]
+
+source_file="res://Dialogue/Minigame/hit.dialogue"
+dest_files=["res://.godot/imported/hit.dialogue-c68710df18b04e4c05e26e664bcd49b8.tres"]
+
+[params]
+
+defaults=true

@@ -1,16 +1,18 @@
 ~ start
 
-{{player_name}} reached the end of the hallway. 
+{{player_name}} reached the end of the second hallway. 
 	You find yourselves with two directions to go.
 	Which way do you go?
 - Left
 	{{player_name}} decided to go down the hallway on the left.
-	do CutsceneGlobal.said_no()
+	do CutsceneGlobal.change_to_minigame_level3()
+	
 	
 	=> END
 - Right
 	{{player_name}} decided to go down the hallway on the right.
+	{{player_name}}: What? Where's the exit?
+	{{player_name}}: AAACCKK!!
+	do CutsceneGlobal.change_to_dead_end_ending()
 	
-	do CutsceneGlobal.change_to_minigame_level2()
-
 	=> END

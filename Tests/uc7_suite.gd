@@ -4,9 +4,10 @@ extends "res://addons/gut/test.gd"
 # Player hits an obstacle
 # > Game Over
 func test_uc7_s1():
-	main_minigame.invoke_hit()
+	var gd: GameDataManager = GameDataManager.new()
+	gd.get_hit()
 	
-	assert_eq(main_minigame.game_over, true, "Hit must return true.")
+	assert_eq(gd.game_over, true, "Hit must return true.")
 
 # UC7-S2
 # Player reaches the end of path

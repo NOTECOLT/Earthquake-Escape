@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bfo7k63yeuyoy"
+path="res://.godot/imported/level2_end.dialogue-5ba5aa3b0cfb96a0f50721ab109bcdbf.tres"
+
+[deps]
+
+source_file="res://Dialogue/Minigame/level2_end.dialogue"
+dest_files=["res://.godot/imported/level2_end.dialogue-5ba5aa3b0cfb96a0f50721ab109bcdbf.tres"]
+
+[params]
+
+defaults=true

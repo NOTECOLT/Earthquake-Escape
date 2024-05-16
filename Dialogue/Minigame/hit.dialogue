@@ -1,0 +1,20 @@
+~ start
+
+{{player_name}}: AACCKK!!
+{{player_name}} got caught in some rubble!
+	They tried calling out for help.
+if gameData.has_inventory_item('Whistle') and gameData.has_inventory_item('Bag'):
+	Luckily, {{player_name}} had their go-bag and whistle with them to call out for help.
+	{{player_name}}: [shake rate=20 level=10]TWEEEEEET!!![/shake]
+	...
+	Classmate: Hello? Oh my god! Let me help you!
+	{{player_name}} was saved by their classmate and continued on looking for an exit
+	do CutsceneGlobal.restart_level()
+else:
+	Unfortunately, {{player_name}} did not have their whistle with them to call out for help.
+	{{player_name}}: HELLLPP!!!
+	...
+	...
+	do CutsceneGlobal.change_to_obstacle_ending()
+
+=> END
