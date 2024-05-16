@@ -67,7 +67,7 @@ func item_interact(gd: GameDataManager):
 func change_scene():
 	if changeScene == "": return
 	gameData.player.current_scene = changeScene
-	get_tree().change_scene_to_file(changeScene)	
+	SceneTransition.change_scene_to_file(changeScene)	
 		
 
 func _on_area_2d_mouse_shape_entered(_shape_idx):

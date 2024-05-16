@@ -18,7 +18,7 @@ func _process(_delta):
 	pass
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	SceneTransition.change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_load_save_1_pressed():
@@ -62,4 +62,4 @@ func load_game(player: Player, slot: int):
 	gameData.disable_interactions = false
 	gameData.game_paused = false
 	
-	get_tree().change_scene_to_file(gameData.player.current_scene)
+	SceneTransition.change_scene_to_file(gameData.player.current_scene)

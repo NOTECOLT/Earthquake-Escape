@@ -20,6 +20,7 @@ config/icon="res://Art/icon.svg"
 GameData="*res://Scripts/Game Data/game_data_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 CutsceneGlobal="*res://Scripts/cutscene_global.gd"
+SceneTransition="*res://Scenes/SceneTransition.tscn"
 
 [dialogue_manager]
 
