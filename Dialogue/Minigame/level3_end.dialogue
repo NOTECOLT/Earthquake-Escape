@@ -1,0 +1,6 @@
+~ start
+
+{{player_name}} safely made it out of the building and met up with the rest of their classmates outside.
+do CutsceneGlobal.change_to_game_win()
+	
+=> END

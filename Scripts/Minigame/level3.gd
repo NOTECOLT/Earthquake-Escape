@@ -22,22 +22,28 @@ var obstacles : Array
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 6.0
+const START_SPEED : float = 10.0
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
 var last_obs
 
 var player_name: String
+@export var overlay: Sprite2D
+@export var level_end_dialogue: DialogueResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	gameData.current_minigame_level = 3
+	gameData.level_end = false
 	player_name = gameData.player.name
 	screen_size = get_window().size
 	#print(screen_size, ground_height)
 	ground_height = $Floor.get_node("Sprite2D").texture.get_height()
 	#$GameOver.get_node("Button").pressed.connect(new_game)
+	if gameData.has_inventory_item('Flashlight') and gameData.has_inventory_item('Bag'):
+		overlay.visible = false
+	
 	new_game()
 
 func new_game():
@@ -64,8 +70,10 @@ func new_game():
 
 func finish_run():
 	print("arrived at end")
-	#get_tree().paused = true
+	gameData.reach_level_end()
 	game_running = false
+	DialogueManager.show_dialogue_balloon(level_end_dialogue, "start")
+	#get_tree().paused = true
 
 func Game_over():
 	print("game over")
@@ -82,7 +90,7 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		
-		var end_goal = 3000
+		var end_goal = 14000
 
 		
 		#generate obstacles

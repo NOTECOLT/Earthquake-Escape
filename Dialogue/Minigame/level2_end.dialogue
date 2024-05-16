@@ -5,6 +5,12 @@
 	Which way do you go?
 - Left
 	{{player_name}} decided to go down the hallway on the left.
+	The lights in the last hallway were broken.
+	if gameData.has_inventory_item('Flashlight') and gameData.has_inventory_item('Bag'):
+		Luckily, {{player_name}} had packed their go-bag and flashlight to illuminate the hallway.
+	else:
+		Without their go-bag or flashlight, {{player_name}} wasn't able to illuminate the hallway.
+	
 	do CutsceneGlobal.change_to_minigame_level3()
 	
 	

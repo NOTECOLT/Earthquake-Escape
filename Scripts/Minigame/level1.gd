@@ -32,6 +32,7 @@ var player_name: String
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	gameData.current_minigame_level = 1
+	gameData.level_end = false
 	player_name = gameData.player.name
 	screen_size = get_window().size
 	#print(screen_size, ground_height)
@@ -63,6 +64,7 @@ func new_game():
 
 func finish_run():
 	print("arrived at end")
+	gameData.reach_level_end()
 	game_running = false
 	DialogueManager.show_dialogue_balloon(level_end_dialogue, "start")
 	#get_tree().paused = true

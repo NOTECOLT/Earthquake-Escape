@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dprlqeogvp7ge"]
+[gd_scene load_steps=9 format=3 uid="uid://dprlqeogvp7ge"]
 
 [ext_resource type="Script" path="res://Scripts/Minigame/level3.gd" id="1_pxbp6"]
+[ext_resource type="Resource" uid="uid://c57hoag4gp5co" path="res://Dialogue/Minigame/level3_end.dialogue" id="2_dk21m"]
 [ext_resource type="PackedScene" uid="uid://du2q2hkr7qo1j" path="res://Scenes/Minigame/mini_game_bg.tscn" id="2_l3m0w"]
 [ext_resource type="PackedScene" uid="uid://c536ocrlojr66" path="res://Scenes/Minigame/floor.tscn" id="3_v1xe1"]
 [ext_resource type="PackedScene" uid="uid://d2qmpdpq203mp" path="res://Scenes/Minigame/dino.tscn" id="4_0cajc"]
@@ -8,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bhmxpci4yv5sl" path="res://Scenes/pause_ui.tscn" id="6_c0gmp"]
 [ext_resource type="Texture2D" uid="uid://d03rt485s2qha" path="res://Art/Minigame/BG/minigame-overlay.png" id="7_u1838"]
 
-[node name="DarkMini" type="Node"]
+[node name="DarkMini" type="Node" node_paths=PackedStringArray("overlay")]
 script = ExtResource("1_pxbp6")
+overlay = NodePath("Minigame_overlay")
+level_end_dialogue = ExtResource("2_dk21m")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_l3m0w")]
 follow_viewport_enabled = true
@@ -50,7 +53,8 @@ scale = Vector2(2, 2)
 
 [node name="Minigame_overlay" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(486, 345)
+position = Vector2(582, 337)
+scale = Vector2(1.155, 1.10667)
 texture = ExtResource("7_u1838")
 
 [connection signal="pressed" from="CanvasLayer/Pause Button" to="CanvasLayer/Pause Button/PauseUI" method="_on_pause_button_pressed"]

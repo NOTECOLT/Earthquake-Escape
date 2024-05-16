@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://dislqws5y4fmu"]
+
+[ext_resource type="Script" path="res://Scripts/win_slide.gd" id="1_l8ncu"]
+[ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="3_34o4q"]
+
+[node name="Obstacle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l8ncu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -104.0
+offset_right = 99.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_34o4q")
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -26.5
+offset_right = 308.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_34o4q")
+theme_override_font_sizes/font_size = 17
+text = "With proper disaster preparedness and quick reflexes, you were able to escape
+from the school with minimal injuries."
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = 219.0
+offset_right = 454.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_34o4q")
+text = "MAIN MENU"
+
+[connection signal="pressed" from="Menu" to="." method="open_main_menu"]

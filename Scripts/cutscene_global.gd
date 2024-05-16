@@ -18,7 +18,8 @@ func change_to_dead_end_ending():
 func change_to_obstacle_ending():
 	SceneTransition.change_scene_to_file('res://Scenes/Endings/obstacle.tscn')
 
-
+func change_to_game_win():
+	SceneTransition.change_scene_to_file('res://Scenes/Endings/game_win.tscn')
 
 func change_to_cutscene1():
 	SceneTransition.change_scene_to_file('res://Scenes/cutscene1.tscn')

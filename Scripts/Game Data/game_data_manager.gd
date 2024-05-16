@@ -9,6 +9,7 @@ var sdc = SaveDataController.new()
 @export var disable_interactions:bool = false
 @export var game_paused:bool = false
 @export var game_over:bool = false
+@export var level_end: bool = false
 
 @export var current_minigame_level: int = -1
 
@@ -53,3 +54,6 @@ func unpause_game():
 
 func get_hit():
 	game_over = true
+
+func reach_level_end():
+	level_end = true
