@@ -18,6 +18,7 @@ var up_obs := [obs_pipes, obs_wires, obs_wood]
 var obstacles : Array
 
 #game variables
+const end_goal = 10000
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
@@ -86,7 +87,7 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		
-		var end_goal = 10000
+		#var end_goal = 10000
 
 		
 		#generate obstacles
@@ -96,10 +97,9 @@ func _process(delta):
 		$Dino.position.x += speed
 		$Camera2D.position.x += speed
 		
+		
 		if $Dino.position.x == end_goal:
 			finish_run()
-			
-			
 		
 		#update ground position
 		if $Camera2D.position.x - $Floor.position.x > screen_size.x * 1.5:
@@ -115,7 +115,7 @@ func _process(delta):
 var backgrounds = 1
 func generate_obs():
 	#print(obstacles.is_empty(), last_obs)
-	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
+	if (obstacles.is_empty() or last_obs.position.x < randi_range(100, 500)) and end_goal - $Dino.position.x > 1000:
 		var is_up = randi_range(0, 1)
 		var obs_type
 		if is_up:

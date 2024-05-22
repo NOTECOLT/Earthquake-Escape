@@ -19,6 +19,7 @@ var up_obs := [obs_pipes, obs_wires, obs_wood]
 var obstacles : Array
 
 #game variables
+const end_goal = 11000
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
@@ -83,17 +84,19 @@ func Game_over():
 	#get_tree().paused = true
 	game_running = false
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if gameData.game_paused: return
 	if game_running:
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		if !gameData.has_inventory_item("Flashlight"):
-			$Dino.JUMP_SPEED = -1200
-			$Dino.GRAVITY = 2500
+			$Dino.JUMP_SPEED = -1300
+			$Dino.GRAVITY = 2300
 		
-		var end_goal = 14000
+		
 
 		
 		#generate obstacles
@@ -104,6 +107,7 @@ func _process(delta):
 		$Camera2D.position.x += speed
 		$Minigame_overlay.position.x += speed
 		
+		print($Dino.position.x)
 		if $Dino.position.x == end_goal:
 			finish_run()
 			
@@ -123,7 +127,7 @@ func _process(delta):
 var backgrounds = 1
 func generate_obs():
 	#print(obstacles.is_empty(), last_obs)
-	if obstacles.is_empty() or last_obs.position.x < randi_range(100, 500):
+	if (obstacles.is_empty() or last_obs.position.x < randi_range(100, 500)) and end_goal - $Dino.position.x > 1000:
 		var is_up = randi_range(0, 1)
 		var obs_type
 		if is_up:
