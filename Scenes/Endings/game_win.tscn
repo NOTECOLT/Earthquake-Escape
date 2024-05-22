@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dislqws5y4fmu"]
+[gd_scene load_steps=4 format=3 uid="uid://dislqws5y4fmu"]
 
 [ext_resource type="Script" path="res://Scripts/win_slide.gd" id="1_l8ncu"]
+[ext_resource type="Texture2D" uid="uid://cxeqmtt4hch5y" path="res://Art/Endscreens/end-good2.png" id="2_im7mx"]
 [ext_resource type="Theme" uid="uid://bp556hodxijho" path="res://Themes/Main Theme.tres" id="3_34o4q"]
 
 [node name="GameWin" type="Control"]
@@ -12,6 +13,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l8ncu")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_im7mx")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -20,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -98.0
-offset_top = -104.0
+offset_top = 112.0
 offset_right = 99.0
-offset_bottom = -69.0
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_34o4q")
@@ -36,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -26.5
-offset_right = 308.0
-offset_bottom = 12.5
+offset_left = -327.5
+offset_top = 170.5
+offset_right = 327.5
+offset_bottom = 209.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_34o4q")

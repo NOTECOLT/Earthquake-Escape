@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const GRAVITY : int = 2000
-const JUMP_SPEED : int = -900
+var GRAVITY : int = 2000
+var JUMP_SPEED : int = -1000
 var collided = false
 
 func is_hit():

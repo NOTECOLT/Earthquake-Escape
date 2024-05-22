@@ -22,7 +22,7 @@ var obstacles : Array
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 10.0
+const START_SPEED : float = 7
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -89,6 +89,9 @@ func _process(delta):
 	if game_running:
 		#speed up and adjust difficulty
 		speed = START_SPEED
+		if !gameData.has_inventory_item("Flashlight"):
+			$Dino.JUMP_SPEED = -1200
+			$Dino.GRAVITY = 2500
 		
 		var end_goal = 14000
 
