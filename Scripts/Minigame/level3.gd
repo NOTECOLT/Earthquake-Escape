@@ -3,7 +3,7 @@ extends Node
 
 @onready var gameData = get_node("/root/GameData")
 
-static var game_over: bool = false
+#static var game_over: bool = false
 
 #preload obstacles
 var obs_plant = preload("res://Scenes/Minigame/obs_plant.tscn")
@@ -23,7 +23,7 @@ const end_goal = 11000
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 7
+const START_SPEED : float = 10
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -48,7 +48,7 @@ func _ready():
 	new_game()
 
 func new_game():
-	game_over = false
+	gameData.game_over = false
 
 	game_running = true
 	get_tree().paused = false
@@ -93,8 +93,9 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		if !gameData.has_inventory_item("Flashlight"):
-			$Dino.JUMP_SPEED = -1300
-			$Dino.GRAVITY = 2300
+			$Dino.JUMP_SPEED = -700
+			$Dino.GRAVITY = 1600
+			speed = 7
 		
 		
 
@@ -107,8 +108,8 @@ func _process(delta):
 		$Camera2D.position.x += speed
 		$Minigame_overlay.position.x += speed
 		
-		print($Dino.position.x)
-		if $Dino.position.x == end_goal:
+		print($Dino.position.x, end_goal)
+		if $Dino.position.x >= end_goal:
 			finish_run()
 			
 			

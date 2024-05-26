@@ -22,7 +22,7 @@ const end_goal = 10000
 const DINO_START_POS := Vector2i(120, 500)
 const CAM_START_POS := Vector2i(0, 0)
 var speed : float
-const START_SPEED : float = 10.0
+const START_SPEED : float = 9.0
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -98,7 +98,7 @@ func _process(delta):
 		$Camera2D.position.x += speed
 		
 		
-		if $Dino.position.x == end_goal:
+		if $Dino.position.x >= end_goal:
 			finish_run()
 		
 		#update ground position
