@@ -20,6 +20,7 @@ source = NodePath("Main Body/Source")
 body = NodePath("Main Body/Body")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1600.0
 offset_bottom = 1200.0
 scale = Vector2(0.5, 0.5)

@@ -93,8 +93,6 @@ func _process(delta):
 		#speed up and adjust difficulty
 		speed = START_SPEED
 		if !gameData.has_inventory_item("Flashlight"):
-			$Dino.JUMP_SPEED = -700
-			$Dino.GRAVITY = 1600
 			speed = 7
 		
 		
